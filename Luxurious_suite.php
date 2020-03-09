@@ -13,7 +13,7 @@
 </head>
 <body style="margin-top:50px;">
 	<?php
-      include('Menu Bar.php')
+      include('menu_bar.php')
   ?><br><br><br>
 	<div class="container-fluid"style="margin-top:2%;">
 		<div class="continer">
