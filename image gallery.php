@@ -12,7 +12,7 @@
 </head> <!--Head Open  Here-->
 <body style="margin-top:50px;"> 
   <?php
-      include('Menu Bar.php')
+      include('Menu_bar.php')
   ?>
 <div class="container">
   <h2>Image Gallery</h2>
