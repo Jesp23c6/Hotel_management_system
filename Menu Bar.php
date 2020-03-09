@@ -1,6 +1,8 @@
 <?php 
 session_start();
-$eid=$_SESSION['create_account_logged_in'];
+if(isset($_SESSION['create_account_logged_in'])){
+  $eid=$_SESSION['create_account_logged_in'];
+}
 error_reporting(1);
 ?>
 <!--Menu Bar Close Here-->
