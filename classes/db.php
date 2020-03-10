@@ -61,6 +61,23 @@ class Db{
     }
 
     /**
+     * Updates a profile's info
+     * 
+     * @param [string] $name
+     * @param [string] $pass
+     * @param [int] $mob
+     * @param [string] $add
+     * @param [string] $eid
+     */
+    update_profile($name, $pass, $mob, $add, $eid){
+
+        $sql = "update create_account set name='$name',password='$pass',mobile='$mob',address='$add' where email='$eid'";
+
+        $result = $this->conn->query($sql);
+
+    }
+
+    /**
      * Checks if an order already exists.
      * 
      * @param [string] $email
