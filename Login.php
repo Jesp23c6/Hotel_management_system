@@ -3,7 +3,7 @@ session_start();
 error_reporting(1);
 if($_SESSION['create_account_logged_in']!="")
 {
-header('location:Booking Form.php');
+header('location:booking_form.php');
 }
 error_reporting(1);
 require('connection.php');
@@ -20,7 +20,7 @@ if(isset($login))
     if(mysqli_num_rows($sql))
     {
     $_SESSION['create_account_logged_in']=$eid;  
-    header('location:Booking Form.php'); 
+    header('location:booking_form.php'); 
     }
     else
     {
@@ -64,8 +64,8 @@ include('includes/menu_bar.php')
             </div>
           <input type="submit" value="Login" name="login" class="btn btn-primary btn-group btn-group-justified"required>
           <div class="form-group forget">
-                <a href="Forgot account.php">Forget Account</a>&nbsp; <b>|</b>&nbsp; 
-                <a href="Registation form.php">Create an Account</a>
+                <a href="forgot_account.php">Forget Account</a>&nbsp; <b>|</b>&nbsp; 
+                <a href="registration_form.php">Create an Account</a>
             </div>
       	</form><br>
         </div>
