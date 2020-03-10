@@ -44,6 +44,16 @@ class Db{
         return $result;
 
     }
+
+
+    place_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $Occupancy, $cdate, $ctime, $codate){
+
+        $sql="insert into room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,Occupancy,check_in_date,check_in_time,check_out_date) 
+        values('$name','$email','$phone','$address','$city','$state','$zip','$country','$room_type','$Occupancy','$cdate','$ctime','$codate')";
+
+        $result = $this->conn->query($sql);
+
+    }
     
 
 }
