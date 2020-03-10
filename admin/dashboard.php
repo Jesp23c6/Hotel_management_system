@@ -72,47 +72,47 @@ if($admin=="")
 @$opt=$_GET['option'];
 if($opt=="")
 {
-include('reports.php');	
+include('admin_includes/reports.php');	
 }
 else
 {
 	if($opt=="feedback")
 	{
-	include('feedback.php');	
+	include('admin_includes/feedback.php');	
 	}
 	else if($opt=="slider")
 	{
-	include('slider.php');	
+	include('admin_includes/slider.php');	
 	}
 	else if($opt=="update_slider")
 	{
-	include('update_slider.php');	
+	include('admin_includes/update_slider.php');	
 	}
 	else if($opt=="add_slider")
 	{
-	include('add_slider.php');	
+	include('admin_includes/add_slider.php');	
 	}
 	else if($opt=="update_password")
 	{
-	include('update_password.php');	
+	include('admin_includes/update_password.php');	
 	}
 	else if($opt=="rooms")
 	{
-	include('rooms.php');	
+	include('admin_includes/rooms.php');	
 	}
 	
 	else if($opt=="add_rooms")
 	{
-	include('add_rooms.php');	
+	include('admin_includes/add_rooms.php');	
 	}
 	else if($opt=="delete_room")
 	{
-	include('delete_room.php');	
+	include('admin_includes/delete_room.php');	
 	}
   
   else if($opt=="update_room")
   {
-    include('update_room.php');
+    include('admin_includes/update_room.php');
   }
   else if($opt=="booking_details")
   {
@@ -120,11 +120,11 @@ else
   }
   else if($opt=="user_registration")
   {
-    include('user_registration.php');
+    include('admin_includes/user_registration.php');
   }
   else if($opt=="admin_profile")
   {
-    include('admin_profile.php');
+    include('admin_includes/admin_profile.php');
   }
 }
 ?>
