@@ -3,6 +3,7 @@ session_start();
 
 /**
  * Making sure that $eid only gets made if the session variable is set.
+ * So no error is printed if it isn't.
  */
 if(isset($_SESSION['create_account_logged_in'])){
   $eid=$_SESSION['create_account_logged_in'];
