@@ -1,20 +1,23 @@
 <?php 
-require('classes/db.php');
+include('classes/db.php');
 include('includes/menu_bar.php');
 include('connection.php');
 if($eid=="")
 {
 header('location:login.php');
 }
-$sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
-$result=mysqli_fetch_assoc($sql);
+$db = new Db();
+//$sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
+//$result=mysqli_fetch_assoc($sql);
+$result = $db->get_order($eid);
 //print_r($result);
 extract($_REQUEST);
 error_reporting(1);
 if(isset($savedata))
 {
-  $sql= mysqli_query($con,"select * from room_booking_details where email='$email' and room_type='$room_type' ");
-  if(mysqli_num_rows($sql)) 
+  $order_exists = $db->check_order($email, $room_type);
+  //$sql= mysqli_query($con,"select * from room_booking_details where email='$email' and room_type='$room_type' ");
+  if($order_exists/*mysqli_num_rows($sql)*/) 
   {
   $msg= "<h1 style='color:red'>You have already booked this room</h1>";    
   }

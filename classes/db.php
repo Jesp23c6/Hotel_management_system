@@ -119,8 +119,6 @@ class Db{
 
         $result = $this->conn->query($sql);
 
-        return $result;
-
     }
 
     /**
