@@ -27,7 +27,7 @@ $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
 </head>
 <body style="margin-top:50px;">
   <?php
-  include('Menu Bar.php');
+  include('includes/menu_bar.php');
   ?>
  <?php
      $sql= mysqli_query($con,"select * from create_account where email='$eid' "); 

@@ -1,5 +1,5 @@
 <?php 
-include('Menu Bar.php');
+include('includes/menu_bar.php');
 include('connection.php');
 if($eid=="")
 {

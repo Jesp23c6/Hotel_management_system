@@ -17,7 +17,7 @@ include('connection.php');
 </head> <!--Head Open  Here-->
 <body style="margin-top:50px;">
   <?php
-      include('menu_bar.php')
+      include('includes/menu_bar.php')
   ?>
 <div id="myCarousel" class="carousel slide" data-ride="carousel"> <!--Slider Image Start Here--> 
     <!-- Indicators -->

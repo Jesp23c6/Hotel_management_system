@@ -30,7 +30,7 @@ mysqli_query($con,"update create_account set name='$fname',email='$email',passwo
 </head>
 <body style="margin-top:50px;">
   <?php 
-include('Menu Bar.php');
+include('includes/menu_bar.php');
   ?>
 <div class="container-fluid"style="color:#000;"> <!-- Primary Id-->
   <div class="container">
