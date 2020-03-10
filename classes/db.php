@@ -79,5 +79,17 @@ class Db{
 
     }
     
+    /**
+     * Deletes an order
+     * 
+     * @param mixed $oid
+     */
+    cancel_order($oid){
+
+        $sql = "delete from  room_booking_details where id='$oid' ";
+
+        $result = $this->conn->query($sql);
+
+    }
 
 }
