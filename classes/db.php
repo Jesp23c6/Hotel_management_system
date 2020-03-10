@@ -65,10 +65,29 @@ class Db{
      * 
      * @param [string] $email
      * @param [string] $room_type
+     * 
+     * @return $result
      */
     check_order($email, $room_type){
 
         $sql = "select * from room_booking_details where email='$email' and room_type='$room_type'";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
+
+    /**
+     * Gets currently placed orders for users to view.
+     * 
+     * @param mixed $eid
+     * 
+     * @return $result
+     */
+    get_order($eid){
+
+        $sql = "select * from room_booking_details where email='$eid'";
 
         $result = $this->conn->query($sql);
 
@@ -117,6 +136,8 @@ class Db{
 
     /**
      * Gets all pictures for slide on index.php
+     * 
+     * @return $result
      */
     all_slide_pictures(){
 
@@ -130,6 +151,8 @@ class Db{
 
     /**
      * Gets all rooms to display on index.php
+     * 
+     * @return $result
      */
     all_rooms(){
 
