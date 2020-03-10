@@ -84,7 +84,7 @@ class Db{
      * 
      * @param mixed $oid
      */
-    cancel_order($oid){
+    delete_order($oid){
 
         $sql = "delete from  room_booking_details where id='$oid' ";
 
