@@ -53,7 +53,7 @@ class Db{
         $pass = "";
 
         while($row = $result->fetch_assoc()){
-            $pass = $row[''];
+            $pass = $row['password'];
         }
 
         return $pass;
