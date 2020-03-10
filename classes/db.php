@@ -38,6 +38,29 @@ class Db{
     }
 
     /**
+     * Gets a user's pass from their mail
+     * 
+     * @param [string] $email
+     * 
+     * @return $pass
+     */
+    password_from_email($email){
+
+        $sql = "";
+
+        $result = $this->conn->query($sql);
+
+        $pass = "";
+
+        while($row = $result->fetch_assoc()){
+            $pass = $row[''];
+        }
+
+        return $pass;
+
+    }
+
+    /**
      * Checks if an order already exists.
      * 
      * @param [string] $email
