@@ -40,21 +40,21 @@
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="image/Delux Room Single Bed Ac Room/img1.jpg" target="_blank">
+        <a href="image/Luxury Room/Luxury_img8.jpg" target="_blank">
           <img src="image/Luxury Room/Luxury_img8.jpg" alt="img3 Not Show" style="width:100%;height:160px;">
         </a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="image/Delux Room Single Bed Ac Room/img3.jpg" target="_blank">
+        <a href="image/Luxury Room/Luxury_img9.jpg" target="_blank">
           <img src="image/Luxury Room/Luxury_img9.jpg" alt="img3 Not Show" style="width:100%;height:160px;">
         </a>
       </div>
     </div>
     <div class="col-md-4">
       <div class="thumbnail">
-        <a href="image/Delux Room Single Bed Ac Room/img4.jpg" target="_blank">
+        <a href="image/Luxury Room/Luxury_img10.jpg" target="_blank">
           <img src="image/Luxury Room/Luxury_img10.jpg" alt="img3 Not Show" style="width:100%;height:160px;">
         </a>
       </div>
