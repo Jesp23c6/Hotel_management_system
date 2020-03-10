@@ -78,6 +78,17 @@ class Db{
     }
 
     /**
+     * Creates user account
+     */
+    create_account($fname, $email, $pass, $phone, $address, $gender, $country, $picture){
+
+        $sql = "insert into create_account(name,email,password,mobile,address,gender,country,pictrure) values('$fname','$email','$pass','$phone','$address','$gender','$country','$picture')";
+
+        $result = $this->conn->query($sql);
+
+    }
+
+    /**
      * Checks if an order already exists.
      * 
      * @param [string] $email
