@@ -25,7 +25,9 @@ class Db{
 
     check_login(){
 
+        $sql = "";
 
+        $result = $this->conn->query($sql);
 
     }
 
