@@ -45,7 +45,7 @@ if(isset($savedata))
 </head>
 <body style="margin-top:50px;">
   <?php
-  include('Menu Bar.php');
+  include('includes/menu_bar.php');
   ?>
 <div class="container-fluid text-center"id="primary"><!--Primary Id-->
   <h1>[ BOOKING Form ]</h1><br>
@@ -186,7 +186,7 @@ if(isset($savedata))
     </div>
   </div>
 <?php
-include('Footer.php')
+include('includes/footer.php')
 ?>
 </body>
 </html>

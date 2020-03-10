@@ -106,7 +106,7 @@ include('connection.php');
 </div>
 
 <?php
-  include('Footer.php')
+  include('includes/footer.php')
 ?>
 </body>
 </html>

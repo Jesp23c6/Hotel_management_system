@@ -19,7 +19,7 @@ $eid=$_SESSION['create_account_logged_in'];
 </head>
 <body style="margin-top:50px;">
   <?php
-  include('Menu Bar.php');
+  include('includes/menu_bar.php');
   ?>
 <div class="container-fluid"><!--Primary Id-->
   <h1 class="text-center text-primary">[ Booking Details ]</h1><br>
@@ -66,7 +66,7 @@ echo "</tr>";
     </div>
   </div>
 <?php
-include('Footer.php')
+include('includes/footer.php')
 ?>
 </body>
 </html>

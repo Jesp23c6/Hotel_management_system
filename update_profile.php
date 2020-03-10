@@ -116,7 +116,7 @@ include('includes/menu_bar.php');
   </div>
 </div>
 <?php
-    include('Footer.php')
+    include('includes/footer.php')
 ?>
 </body>
 </html>

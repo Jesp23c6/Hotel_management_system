@@ -69,7 +69,7 @@ Hotel operations vary in size, function, complexity, and cost. Most hotels and m
 </div>
 </div>
 <?php
-  include('Footer.php')
+  include('includes/footer.php')
 ?>
 </body>
 </html>

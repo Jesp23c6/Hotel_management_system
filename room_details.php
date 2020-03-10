@@ -111,7 +111,7 @@ $res=mysqli_fetch_assoc($sql);
 		</div>
 	</div>
   <?php
-      include('footer.php')
+      include('includes/footer.php')
   ?>
 </body>
 </html>

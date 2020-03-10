@@ -106,7 +106,7 @@ $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
    </div>
  </div>
 <?php
-include('Footer.php')
+include('includes/footer.php')
 ?>
 </body>
 </html>
