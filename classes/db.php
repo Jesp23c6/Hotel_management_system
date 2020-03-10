@@ -46,7 +46,7 @@ class Db{
      */
     password_from_email($email){
 
-        $sql = "";
+        $sql = "select * from create_account where email='$email'";
 
         $result = $this->conn->query($sql);
 
