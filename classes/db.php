@@ -29,9 +29,9 @@ class Db{
      * @param [string] $email
      * @param [string] $pass
      */
-    check_login($email, $pass){
+    function check_login($email, $pass){
 
-        $sql = "";
+        $sql = "select * from create_account where email='$email' && password='$pass'";
 
         $result = $this->conn->query($sql);
 
@@ -44,7 +44,7 @@ class Db{
      * 
      * @return $pass
      */
-    password_from_email($email){
+    function password_from_email($email){
 
         $sql = "select * from create_account where email='$email'";
 
@@ -69,7 +69,7 @@ class Db{
      * @param [string] $add
      * @param [string] $eid
      */
-    update_profile($name, $pass, $mob, $add, $eid){
+    function update_profile($name, $pass, $mob, $add, $eid){
 
         $sql = "update create_account set name='$name',password='$pass',mobile='$mob',address='$add' where email='$eid'";
 
@@ -80,7 +80,7 @@ class Db{
     /**
      * Creates user account
      */
-    create_account($fname, $email, $pass, $phone, $address, $gender, $country, $picture){
+    function create_account($fname, $email, $pass, $phone, $address, $gender, $country, $picture){
 
         $sql = "insert into create_account(name,email,password,mobile,address,gender,country,pictrure) values('$fname','$email','$pass','$phone','$address','$gender','$country','$picture')";
 
@@ -96,7 +96,7 @@ class Db{
      * 
      * @return $result
      */
-    check_order($email, $room_type){
+    function check_order($email, $room_type){
 
         $sql = "select * from room_booking_details where email='$email' and room_type='$room_type'";
 
@@ -113,7 +113,7 @@ class Db{
      * 
      * @return $result
      */
-    get_order($eid){
+    function get_order($eid){
 
         $sql = "select * from room_booking_details where email='$eid'";
 
@@ -140,7 +140,7 @@ class Db{
      * @param [string] $ctime
      * @param [date] $codate
      */
-    place_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $occupancy, $cdate, $ctime, $codate){
+    function place_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $occupancy, $cdate, $ctime, $codate){
 
         $sql="insert into room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,Occupancy,check_in_date,check_in_time,check_out_date) 
         values('$name','$email','$phone','$address','$city','$state','$zip','$country','$room_type','$occupancy','$cdate','$ctime','$codate')";
@@ -154,7 +154,7 @@ class Db{
      * 
      * @param mixed $oid
      */
-    delete_order($oid){
+    function delete_order($oid){
 
         $sql = "delete from  room_booking_details where id='$oid' ";
 
@@ -167,7 +167,7 @@ class Db{
      * 
      * @return $result
      */
-    all_slide_pictures(){
+    function all_slide_pictures(){
 
         $sql = "select * from slider";
 
@@ -182,7 +182,7 @@ class Db{
      * 
      * @return $result
      */
-    all_rooms(){
+    function all_rooms(){
 
         $sql = "select * from rooms";
 
@@ -191,4 +191,5 @@ class Db{
         return $result;
 
     }
+
 }

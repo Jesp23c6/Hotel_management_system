@@ -1,9 +1,10 @@
 <?php 
+require('classes/db.php');
 include('includes/menu_bar.php');
 include('connection.php');
 if($eid=="")
 {
-header('location:Login.php');
+header('location:login.php');
 }
 $sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
 $result=mysqli_fetch_assoc($sql);
