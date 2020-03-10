@@ -116,7 +116,7 @@ else
   }
   else if($opt=="booking_details")
   {
-    include('booking_details.php');
+    include('admin_includes/booking_details.php');
   }
   else if($opt=="user_registration")
   {
