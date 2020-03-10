@@ -25,7 +25,23 @@ class Db{
 
     check_login(){
 
-        
+
+
+    }
+
+    /**
+     * Checks if an order already exists.
+     * 
+     * @param [string] $email
+     * @param [string] $room_type
+     */
+    check_order($email, $room_type){
+
+        $sql = "select * from room_booking_details where email='$email' and room_type='$room_type'";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
 
     }
     
