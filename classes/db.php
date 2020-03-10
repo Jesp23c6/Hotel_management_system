@@ -115,4 +115,29 @@ class Db{
 
     }
 
+    /**
+     * Gets all pictures for slide on index.php
+     */
+    all_slide_pictures(){
+
+        $sql = "select * from slider";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
+
+    /**
+     * Gets all rooms to display on index.php
+     */
+    all_rooms(){
+
+        $sql = "select * from rooms";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
 }
