@@ -23,7 +23,13 @@ class Db{
     
     }
 
-    check_login(){
+    /**
+     * Checks if email and password are correct
+     * 
+     * @param [string] $email
+     * @param [string] $pass
+     */
+    check_login($email, $pass){
 
         $sql = "";
 
@@ -47,11 +53,27 @@ class Db{
 
     }
 
-
-    place_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $Occupancy, $cdate, $ctime, $codate){
+    /**
+     * Places an order
+     * 
+     * @param [string] $name
+     * @param [string] $email
+     * @param [int] $phone
+     * @param [string] $address
+     * @param [string] $city
+     * @param [string] $state
+     * @param [int] $zip
+     * @param [string] $country
+     * @param [string] $room_type
+     * @param [string] $occupancy
+     * @param [date] $cdate
+     * @param [string] $ctime
+     * @param [date] $codate
+     */
+    place_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $occupancy, $cdate, $ctime, $codate){
 
         $sql="insert into room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,Occupancy,check_in_date,check_in_time,check_out_date) 
-        values('$name','$email','$phone','$address','$city','$state','$zip','$country','$room_type','$Occupancy','$cdate','$ctime','$codate')";
+        values('$name','$email','$phone','$address','$city','$state','$zip','$country','$room_type','$occupancy','$cdate','$ctime','$codate')";
 
         $result = $this->conn->query($sql);
 
