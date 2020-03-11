@@ -244,4 +244,34 @@ class Db{
 
     }
 
+    /**
+     * Gets slider info from id.
+     *
+     * @param [int] $id
+     * @return $result
+     */
+    function get_slider($id){
+
+        $sql = "select * from slider where id='$id'";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
+
+    /**
+     * Deletes a slider
+     *
+     * @param [int] $id
+     */
+    function delete_slider($id){
+
+        $sql = "delete * from slider where id='$id'";
+
+        $result = $this->conn->query($sql);
+
+
+    }
+
 }
