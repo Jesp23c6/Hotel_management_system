@@ -274,4 +274,37 @@ class Db{
 
     }
 
+    /**
+     * Get room by room number
+     *
+     * @param [int] $room_number
+     * @return $result
+     */
+    function get_room_id($room_number){
+
+        $sql = "select * from rooms where room_no='$room_number'";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
+
+    /**
+     * Adds a room
+     *
+     * @param [int] $room_number
+     * @param [string] $type
+     * @param [int] $price
+     * @param [string] $details
+     * @param [string] $img
+     */
+    function add_room($room_number, $type, $price, $details, $img){
+
+        $sql = "insert into rooms values('','$room_number','$type','$price','$details','$img')";
+
+        $result = $this->conn->query($sql);
+
+    }
+
 }
