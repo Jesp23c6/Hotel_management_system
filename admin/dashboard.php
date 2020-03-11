@@ -61,8 +61,8 @@ if($admin=="")
 			<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">Setting <span class="caret"></span></a>
           <ul class="dropdown-menu">
-              <li><a href="#">Logo Update</a></li>
-              <li><a href="#">Address Update</a></li>
+              <li><a href="admin_includes/update_logo.php">Logo Update</a></li>
+              <li><a href="admin_includes/update_address.php">Address Update</a></li>
           </ul>
       </li>
           </ul>
