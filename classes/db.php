@@ -190,4 +190,25 @@ class Db{
 
     }
 
+
+    /**  METHODS FOR THE ADMIN FOLDER.  **/
+
+    /**
+     * Gets all customer info
+     *
+     * @return $result
+     */
+    function get_all_customers(){
+
+        $sql = "select * from customer";
+
+        $result = $this->conn->query($sql);
+
+        return $result;
+
+    }
+
+
+    
+
 }
