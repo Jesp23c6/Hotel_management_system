@@ -18,7 +18,7 @@ error_reporting(1);
       <ul class="nav navbar-nav">
         <li><a href="../index.php"title="Home">Home</a></li>
         <li><a href="../about.php"title="About">About </a></li>
-		    <li><a href="../image gallery.php"title="Gallery">Gallery </a></li>
+		    <li><a href="../image_gallery.php"title="Gallery">Gallery </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="../Login.php"title="login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;User Login</a>
