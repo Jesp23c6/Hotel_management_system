@@ -208,7 +208,17 @@ class Db{
 
     }
 
+    /**
+     * Deletes selected feedback
+     *
+     * @param [int] $id
+     */
+    function delete_feedback($id){
 
-    
+        $sql = "delete from feedback where id='$id'";
+
+        $result = $this->conn->query($sql);
+
+    }
 
 }
