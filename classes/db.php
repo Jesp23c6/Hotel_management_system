@@ -320,4 +320,21 @@ class Db{
 
     }
 
+    /**
+     * updates a room
+     *
+     * @param [int] $room_number
+     * @param [string] $type
+     * @param [int] $price
+     * @param [string] $details
+     * @param [int] $id
+     */
+    function update_room($room_number, $type, $price, $details, $id){
+
+        $sql = "update rooms set room_no='$room_number',type='$type',price='$price',details='$details' where room_id='$id'";
+
+        $result = $this->conn->query($sql);
+
+    }
+
 }
