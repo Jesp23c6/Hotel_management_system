@@ -194,6 +194,29 @@ class Db{
     /**  METHODS FOR THE ADMIN FOLDER.  **/
 
     /**
+     * Check if admin is logged in.
+     *
+     * @param [string] $email
+     * @param [string] $pass
+     * @return $result2
+     */
+    function check_admin($email, $pass){
+
+        $sql = "select * from admin where username='$email' and password='$pass'";
+
+        $result = $this->conn->query($sql);
+
+        $result2 = false;
+
+        if($result->num_rows > 0){
+            $result2 = true;
+        }
+
+        return $result2;
+
+    }
+
+    /**
      * Gets all customer info
      *
      * @return $result
