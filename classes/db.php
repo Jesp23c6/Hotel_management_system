@@ -307,4 +307,17 @@ class Db{
 
     }
 
+    /**
+     * deletes a room
+     *
+     * @param [int] $room_id
+     */
+    function delete_room($room_id){
+
+        $sql = "delete from rooms where room_id='$room_id'";
+
+        $result = $this->conn->query($sql);
+
+    }
+
 }
