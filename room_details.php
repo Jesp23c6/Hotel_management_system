@@ -46,7 +46,45 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
+
+  <?php
+
+    $files = scandir("image/".$res['type']);
+
+    $counter = 1;
+
+    foreach($files as $file){
+
+      //echo($file);
+
+      if($counter == 1){
+
+        echo("
+        <div class='item active'>
+        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img1'>
+        </div>
+        ");
+
+        $counter = $counter + 1;
+
+      }
+      else{
+
+        echo("
+        <div class='item'>
+        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img1'>
+        </div>
+        ");
+
+        $counter = $counter + 1;
+
+      }
+
+    }
+
+  ?>
+
+    <!-- <div class="item active">
       <img src="image/<?php echo($res['type']); ?>/img1.jpg"class="thumbnail" alt="img1">
     </div>
 
@@ -68,7 +106,8 @@
 
     <div class="item">
        <img src="image/<?php echo($res['type']); ?>/img6.jpg"class="thumbnail" alt="img6">
-    </div>
+    </div> -->
+    
   </div>
 
   <!-- Left and right controls -->
