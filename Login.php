@@ -28,7 +28,7 @@ if(isset($login)){
     }
     else{
 
-      $error= "<h4 style='color:red'>Invalid login details</h4>"; 
+      $error= "<h4 style='color:red'>Invalid login details</h4>";
 
     } 
   }

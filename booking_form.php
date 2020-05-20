@@ -5,7 +5,7 @@ if($eid=="")
 {
 header('location:Login.php');
 }
-$sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
+$sql= mysqli_query($con,"select * from create_account where email='$eid' "); 
 $result=mysqli_fetch_assoc($sql);
 //print_r($result);
 extract($_REQUEST);
