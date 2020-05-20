@@ -17,6 +17,16 @@
     include('includes/menu_bar.php');
   ?>
   
+  <?php 
+    include('connection.php');
+
+    $room_id=$_GET['room_id'];
+
+    $sql=mysqli_query($con,"select * from rooms where room_id='$room_id' ");
+
+    $res=mysqli_fetch_assoc($sql);
+  ?>  
+
   <br><br><br>
 	<div class="container-fluid"style="margin-top:2%;">
 		<div class="continer">
@@ -37,27 +47,27 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="image/Delux Room Single Bed Ac Room/delux_img1.jpg"class="thumbnail" alt="img1">
+      <img src="image/<?php echo($res['type']); ?>/img1.jpg"class="thumbnail" alt="img1">
     </div>
 
     <div class="item">
-      <img src="image/Delux Room Single Bed Ac Room/delux_img2.jpg"class="thumbnail" alt="im2">
+      <img src="image/<?php echo($res['type']); ?>/img2.jpg"class="thumbnail" alt="img2">
     </div>
 
     <div class="item">
-       <img src="image/Delux Room Single Bed Ac Room/delux_img3.jpg"class="thumbnail" alt="im3">
+       <img src="image/<?php echo($res['type']); ?>/img3.jpg"class="thumbnail" alt="img3">
     </div>
 
     <div class="item">
-       <img src="image/Delux Room Single Bed Ac Room/delux_img4.jpg"class="thumbnail" alt="img4">
+       <img src="image/<?php echo($res['type']); ?>/img4.jpg"class="thumbnail" alt="img4">
     </div>
 
     <div class="item">
-       <img src="image/Delux Room Single Bed Ac Room/delux_img5.jpg"class="thumbnail" alt="img5">
+       <img src="image/<?php echo($res['type']); ?>/img5.jpg"class="thumbnail" alt="img5">
     </div>
 
     <div class="item">
-       <img src="image/Delux Room Single Bed Ac Room/delux_img7.jpg"class="thumbnail" alt="img7">
+       <img src="image/<?php echo($res['type']); ?>/img6.jpg"class="thumbnail" alt="img6">
     </div>
   </div>
 
@@ -71,16 +81,6 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-
-<?php 
-include('connection.php');
-
-$room_id=$_GET['room_id'];
-
-$sql=mysqli_query($con,"select * from rooms where room_id='$room_id' ");
-
-$res=mysqli_fetch_assoc($sql);
-?>
 
 		<h2 class="Ac_Room_Text"><?php echo $res['type']; ?></h2>
     <h3 class="Ac_Room_Text"><?php echo $res['price']; ?></h3>
