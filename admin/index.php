@@ -1,24 +1,27 @@
 <?php 
 session_start();
+
 error_reporting(1);
+
 require('../connection.php');
+
 extract($_REQUEST);
-if(isset($login))
-{
-	if($eid=="" || $pass=="")
-	{
+
+if(isset($login)){
+	if($eid=="" || $pass==""){
 	$error= "<h3 style='color:red'>fill all details</h3>";	
-	}		
-	else
-	{
-	$sql=mysqli_query($con,"select * from admin where username='$eid' && password='$pass' ");
-		if(mysqli_num_rows($sql))
-		{
-		$_SESSION['admin_logged_in']=$eid;	
-		header('location:dashboard.php');	
-		}
-		else
-		{
+  }		
+  
+	else{
+    
+    $sql=mysqli_query($con,"select * from admin where username='$eid' && password='$pass' ");
+  
+		if(mysqli_num_rows($sql)){
+		  $_SESSION['admin_logged_in']=$eid;	
+		  header('location:dashboard.php');	
+    }
+    
+		else{
 		$error= "<h3 style='color:red'>Invalid login details</h3>";	
 		}	
 	}
@@ -38,9 +41,11 @@ if(isset($login))
   <link href="https://fonts.googleapis.com/css?family=Akronim|Libre+Baskerville" rel="stylesheet">
 </head>
 <body id="primary"style="margin-top:50px;">
+
 	<?php
 include('admin_includes/menu_bar.php');
 	?>
+
 <div class="container-fluid"> <!-- Primary Id-->
   <div class="container">
     <div class="row"><br>
@@ -65,8 +70,10 @@ include('admin_includes/menu_bar.php');
     </div><br>
   </div>
 </div>
+
 <?php
 include('admin_includes/footer.php');
 ?>
+
 </body>
 </html>

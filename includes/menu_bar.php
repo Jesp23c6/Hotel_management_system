@@ -8,7 +8,9 @@ session_start();
 if(isset($_SESSION['create_account_logged_in'])){
   $eid=$_SESSION['create_account_logged_in'];
 }
+
 error_reporting(1);
+
 ?>
 <!--Menu Bar Close Here-->
 <nav class="navbar navbar-inverse navbar-fixed-top">

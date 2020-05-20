@@ -19,9 +19,10 @@
 
 <?php 
 $i=1;
+
 $sql=mysqli_query($con,"select * from customer");
-while($res=mysqli_fetch_assoc($sql))
-{
+
+while($res=mysqli_fetch_assoc($sql)){
 ?>
 <tr>
 		<td><?php echo $i;$i++; ?></td>
@@ -39,8 +40,6 @@ while($res=mysqli_fetch_assoc($sql))
 		<td><?php echo $res['Occupancy']; ?></td>
 	</td>
 	</tr>
-<?php 	
-}
+<?php } ?>	
 
-?>	
 </table>

@@ -1,12 +1,16 @@
 <?php 
 session_start();
+
 extract($_REQUEST);
+
 include('../connection.php');
+
 $admin=$_SESSION['admin_logged_in'];	
-if($admin=="")
-{
+
+if($admin==""){
 	header('location:index.php');
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -70,62 +74,60 @@ if($admin=="")
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 <?php 
 @$opt=$_GET['option'];
-if($opt=="")
-{
+
+if($opt==""){
 include('admin_includes/reports.php');	
 }
-else
-{
-	if($opt=="feedback")
-	{
-	include('admin_includes/feedback.php');	
-	}
-	else if($opt=="slider")
-	{
-	include('admin_includes/slider.php');	
-	}
-	else if($opt=="update_slider")
-	{
-	include('admin_includes/update_slider.php');	
-	}
-	else if($opt=="add_slider")
-	{
-	include('admin_includes/add_slider.php');	
-	}
-	else if($opt=="update_password")
-	{
-	include('admin_includes/update_password.php');	
-	}
-	else if($opt=="rooms")
-	{
-	include('admin_includes/rooms.php');	
+
+else{
+	if($opt=="feedback"){
+	  include('admin_includes/feedback.php');	
+  }
+  
+	else if($opt=="slider"){
+	  include('admin_includes/slider.php');	
+  }
+  
+	else if($opt=="update_slider"){
+	  include('admin_includes/update_slider.php');	
+  }
+  
+	else if($opt=="add_slider"){
+	  include('admin_includes/add_slider.php');	
+  }
+  
+	else if($opt=="update_password"){
+	  include('admin_includes/update_password.php');	
+  }
+  
+	else if($opt=="rooms"){
+	  include('admin_includes/rooms.php');	
 	}
 	
-	else if($opt=="add_rooms")
-	{
-	include('admin_includes/add_rooms.php');	
-	}
-	else if($opt=="delete_room")
-	{
-	include('admin_includes/delete_room.php');	
+	else if($opt=="add_rooms"){
+	  include('admin_includes/add_rooms.php');	
+  }
+  
+	else if($opt=="delete_room"){
+	  include('admin_includes/delete_room.php');	
 	}
   
-  else if($opt=="update_room")
-  {
+  else if($opt=="update_room"){
     include('admin_includes/update_room.php');
   }
-  else if($opt=="booking_details")
-  {
+
+  else if($opt=="booking_details"){
     include('admin_includes/booking_details.php');
   }
-  else if($opt=="user_registration")
-  {
+
+  else if($opt=="user_registration"){
     include('admin_includes/user_registration.php');
   }
-  else if($opt=="admin_profile")
-  {
+
+  else if($opt=="admin_profile"){
     include('admin_includes/admin_profile.php');
   }
+  
 }
 ?>
           
