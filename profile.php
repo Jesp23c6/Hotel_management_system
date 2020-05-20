@@ -11,9 +11,11 @@ extract($_REQUEST);
 
 if(isset($update)){
 
-$que="update create_account set name='$name',password='$pass',mobile='$mob',address='$add' where email='$eid'";
-mysqli_query($con,$que);
-$msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
+  $pass = md5($salt.$pass);
+
+  $que="update create_account set name='$name',password='$pass',mobile='$mob',address='$add' where email='$eid'";
+  mysqli_query($con,$que);
+  $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
 
 }
 ?>
