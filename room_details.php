@@ -14,7 +14,7 @@
 <body style="margin-top:50px;">
 
 	<?php
-      include('includes/menu_bar.php')
+    include('includes/menu_bar.php');
   ?>
   
   <br><br><br>
