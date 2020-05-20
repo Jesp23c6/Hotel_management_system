@@ -36,23 +36,23 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="image/Twin Delux Room/img1.jpg"class="thumbnail" alt="img1">
+      <img src="image/Twin Delux Room/Twin_img23.jpg"class="thumbnail" alt="img1">
     </div>
 
     <div class="item">
-      <img src="image/Twin Delux Room/img2.jpg"class="thumbnail" alt="im2">
+      <img src="image/Twin Delux Room/Twin_img24.jpg"class="thumbnail" alt="im2">
     </div>
 
     <div class="item">
-       <img src="image/Twin Delux Room/img3.jpg"class="thumbnail" alt="im3">
+       <img src="image/Twin Delux Room/Twin_img25.jpg"class="thumbnail" alt="im3">
     </div>
 
     <div class="item">
-       <img src="image/Twin Delux Room/img4.jpg"class="thumbnail" alt="img4">
+       <img src="image/Twin Delux Room/Twin_img26.jpg"class="thumbnail" alt="img4">
     </div>
 
     <div class="item">
-       <img src="image/Twin Delux Room/img5.jpg"class="thumbnail" alt="img5">
+       <img src="image/Twin Delux Room/Twin_img27.jpg"class="thumbnail" alt="img5">
     </div>
   </div>
 
