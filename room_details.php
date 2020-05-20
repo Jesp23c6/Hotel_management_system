@@ -106,7 +106,7 @@ $res=mysqli_fetch_assoc($sql);
 
             $sql1=mysqli_query($con,"select * from rooms");
 
-           while($result1= mysqli_fetch_assoc($sql1)){
+            while($result1= mysqli_fetch_assoc($sql1)){
             ?>
 
             <a href="room_details.php?room_id=<?php echo $result1['room_id']; ?>"><?php echo $result1['type']; ?></a><hr>

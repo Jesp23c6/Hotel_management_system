@@ -36,23 +36,23 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     <div class="item active">
-      <img src="image/Suit Room/img1.jpg"class="thumbnail" alt="img1">
+      <img src="image/Suit Room/Suit_img18.jpg"class="thumbnail" alt="img1">
     </div>
 
     <div class="item">
-      <img src="image/Suit Room/img2.jpg"class="thumbnail" alt="im2">
+      <img src="image/Suit Room/Suit_img19.jpg"class="thumbnail" alt="im2">
     </div>
 
     <div class="item">
-       <img src="image/Suit Room/img3.jpg"class="thumbnail" alt="im3">
+       <img src="image/Suit Room/Suit_img20.jpg"class="thumbnail" alt="im3">
     </div>
 
     <div class="item">
-       <img src="image/Suit Room/img4.jpg"class="thumbnail" alt="img4">
+       <img src="image/Suit Room/Suit_img21.jpg"class="thumbnail" alt="img4">
     </div>
 
     <div class="item">
-       <img src="image/Suit Room/img5.jpg"class="thumbnail" alt="img5">
+       <img src="image/Suit Room/Suit_img22.jpg"class="thumbnail" alt="img5">
     </div>
   </div>
 
