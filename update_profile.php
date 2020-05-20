@@ -10,9 +10,13 @@ $sql=mysqli_query($con,"select * from create_account where email='$eid'");
 $result=mysqli_fetch_assoc($sql);
 
 extract($_REQUEST);
-if(isset($update))
-{
-mysqli_query($con,"update create_account set name='$fname',email='$email',password='$Passw',mobile='$mobi',address='$addr',gender='$gend',country='$countr'where email='$eid'");
+
+if(isset($update)){
+
+  $Passw = md5($salt.$Passw);
+
+  mysqli_query($con,"update create_account set name='$fname',email='$email',password='$Passw',mobile='$mobi',address='$addr',gender='$gend',country='$countr'where email='$eid'");
+
 }
 ?>
 <!DOCTYPE html>

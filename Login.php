@@ -8,23 +8,28 @@ header('location:booking_form.php');
 error_reporting(1);
 require('connection.php');
 extract($_REQUEST);
-if(isset($login))
-{
-  if($eid=="" || $pass=="")
-  {
+if(isset($login)){
+
+  if($eid=="" || $pass==""){
   $error= "<h4 style='color:red'>fill all details</h4>";  
   }   
-  else
-  {
-  $sql=mysqli_query($con,"select * from create_account where email='$eid' && password='$pass' ");
-    if(mysqli_num_rows($sql))
-    {
-    $_SESSION['create_account_logged_in']=$eid;  
-    header('location:booking_form.php'); 
+
+  else{
+
+    $pass = md5($salt.$pass);
+
+    $sql=mysqli_query($con,"select * from create_account where email='$eid' && password='$pass' ");
+
+    if(mysqli_num_rows($sql)){
+
+      $_SESSION['create_account_logged_in']=$eid;  
+      header('location:index.php'); 
+
     }
-    else
-    {
-    $error= "<h4 style='color:red'>Invalid login details</h4>"; 
+    else{
+
+      $error= "<h4 style='color:red'>Invalid login details</h4>"; 
+
     } 
   }
 }

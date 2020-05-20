@@ -21,8 +21,6 @@ error_reporting(1);
 		    <li><a href="../image_gallery.php"title="Gallery">Gallery </a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="../Login.php"title="login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;User Login</a>
-        </li>
         <li><a href="index.php"title="Admin Login"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Admin Login</a></li>
 
    <?php 
