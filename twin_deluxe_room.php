@@ -12,9 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body style="margin-top:50px;">
+
 	<?php
       include('includes/menu_bar.php')
-  ?><br><br><br>
+  ?>
+  
+  <br><br><br>
 	<div class="container-fluid"style="margin-top:2%;">
 		<div class="continer">
 			<div class="row">
@@ -87,8 +90,10 @@
 			</div>
 		</div>
 	</div>
+
   <?php
       include('includes/footer.php')
   ?>
+  
 </body>
 </html>

@@ -1,8 +1,9 @@
 <?php
 include('connection.php');
+
 extract($_REQUEST);
-if(isset($save))
-{
+
+if(isset($save)){
   $sql= mysqli_query($con,"select * from create_account where email='$email' ");
   
   if(mysqli_num_rows($sql)){
@@ -18,13 +19,13 @@ if(isset($save))
     
     if(mysqli_query($con,$sql)){
 
-    $msg= "<h1 style='color:green'>Data Saved Successfully</h1>"; 
+      $msg= "<h1 style='color:green'>Data Saved Successfully</h1>"; 
    
-    
-    header('location:Login.php');
-  }
+      header('location:Login.php');
+    }
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +41,11 @@ if(isset($save))
    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhai" rel="stylesheet">
 </head>
 <body style="margin-top:50px;">
+
   <?php 
 include('includes/menu_bar.php');
   ?>
+
 <div class="container-fluid"style="background-color:#4286f4;color:#000;"> <!-- Primary Id-->
   <div class="container">
     <div class="row">
@@ -126,8 +129,10 @@ include('includes/menu_bar.php');
     </div>
   </div>
 </div>
+
 <?php
     include('includes/footer.php')
 ?>
+
 </body>
 </html>

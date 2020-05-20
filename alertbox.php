@@ -10,14 +10,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body style="margin-top:50px;">
+
 	<script>
+
 		$(document).ready(function(){
 			$('#myModal').modal('show');
 
 		});
 
-
 	</script>
+  
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"style="margin-top:10%;">
   <div class="modal-dialog modal-md" role="document">
     <div class="modal-content"id="primary">

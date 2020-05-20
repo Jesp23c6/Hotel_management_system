@@ -1,8 +1,13 @@
 <?php 
+
 session_start();
+
 error_reporting(1);
+
 include('connection.php');
+
 $eid=$_SESSION['create_account_logged_in'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,9 +23,11 @@ $eid=$_SESSION['create_account_logged_in'];
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body style="margin-top:50px;">
+
   <?php
   include('includes/menu_bar.php');
   ?>
+
 <div class="container-fluid"><!--Primary Id-->
   <h1 class="text-center text-primary">[ Booking Details ]</h1><br>
   <div class="container">
@@ -39,11 +46,11 @@ $eid=$_SESSION['create_account_logged_in'];
                     <th>Occupancy</th>
 					<th>Cancel</th>
                </tr>
+<?php 
 
-               <?php 
 $sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
-while($result=mysqli_fetch_assoc($sql))
-{
+
+while($result=mysqli_fetch_assoc($sql)){
 $oid=$result['id'];
 echo "<tr>";
 echo "<td>".$result['name']."</td>";
@@ -59,14 +66,16 @@ echo "<td>".$result['Occupancy']."</td>";
 echo "<td><a href='cancel_order.php?order_id=$oid' style='color:Red'>Cancel</a></td>";
 echo "</tr>";
 }                         
-               ?> 
+?> 
           </table>
 
     </div>
     </div>
   </div>
+
 <?php
 include('includes/footer.php')
 ?>
+
 </body>
 </html>

@@ -1,13 +1,18 @@
 <?php 
 session_start();
+
 error_reporting(1);
-if($_SESSION['create_account_logged_in']!="")
-{
+
+if($_SESSION['create_account_logged_in']!=""){
 header('location:booking_form.php');
 }
+
 error_reporting(1);
+
 require('connection.php');
+
 extract($_REQUEST);
+
 if(isset($login)){
 
   if($eid=="" || $pass==""){
@@ -33,6 +38,7 @@ if(isset($login)){
     } 
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,9 +54,11 @@ if(isset($login)){
   <link href="https://fonts.googleapis.com/css?family=Akronim|Libre+Baskerville" rel="stylesheet">
 </head>
 <body style="margin-top:50px;">
+
 <?php
 include('includes/menu_bar.php')
 ?>
+
 <div class="container-fluid"><!-- Primary Id-->
   <div class="container">
     <div class="row"><br>
@@ -77,8 +85,10 @@ include('includes/menu_bar.php')
     </div><br>
   </div>
 </div>
+
 <?php
 include('includes/footer.php')
 ?>
+
 </body>
 </html>

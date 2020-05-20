@@ -11,9 +11,11 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head> <!--Head Open  Here-->
 <body style="margin-top:50px;"> 
+
   <?php
       include('includes/menu_bar.php')
   ?>
+
 <div class="container">
   <h2>Image Gallery</h2>
   <div class="row">
@@ -89,9 +91,11 @@
     </div>
   </div>
 </div>
+
 <?php
   include('includes/footer.php')
 ?>
+
 </body>
 </html>
 

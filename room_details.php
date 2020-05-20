@@ -12,9 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
 </head>
 <body style="margin-top:50px;">
+
 	<?php
       include('includes/menu_bar.php')
-  ?><br><br><br>
+  ?>
+  
+  <br><br><br>
 	<div class="container-fluid"style="margin-top:2%;">
 		<div class="continer">
 			<div class="row">
@@ -68,10 +71,14 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
+
 <?php 
 include('connection.php');
+
 $room_id=$_GET['room_id'];
+
 $sql=mysqli_query($con,"select * from rooms where room_id='$room_id' ");
+
 $res=mysqli_fetch_assoc($sql);
 ?>
 
@@ -93,14 +100,17 @@ $res=mysqli_fetch_assoc($sql);
 					</div><br>
 					<div class="panel-body-right text-center">
     <!--Fatch Mysql Database Select Query Room Details -->
+
 						<?php
             include('connection.php');
-            $sql1=mysqli_query($con,"select * from rooms");
-           while($result1= mysqli_fetch_assoc($sql1))
-           {
 
+            $sql1=mysqli_query($con,"select * from rooms");
+
+           while($result1= mysqli_fetch_assoc($sql1)){
             ?>
+
             <a href="room_details.php?room_id=<?php echo $result1['room_id']; ?>"><?php echo $result1['type']; ?></a><hr>
+
             <?php } ?>
     <!--Fatch Mysql Database Select Query Room Details -->
     					
@@ -110,8 +120,10 @@ $res=mysqli_fetch_assoc($sql);
 			</div>
 		</div>
 	</div>
+
   <?php
       include('includes/footer.php')
   ?>
+
 </body>
 </html>

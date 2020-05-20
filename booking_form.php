@@ -1,32 +1,37 @@
 <?php 
+
 include('includes/menu_bar.php');
+
 include('connection.php');
-if($eid=="")
-{
+
+if($eid==""){
 header('location:Login.php');
 }
+
 $sql= mysqli_query($con,"select * from create_account where email='$eid' "); 
+
 $result=mysqli_fetch_assoc($sql);
-//print_r($result);
+
 extract($_REQUEST);
+
 error_reporting(1);
-if(isset($savedata))
-{
+
+if(isset($savedata)){
+
   $sql= mysqli_query($con,"select * from room_booking_details where email='$email' and room_type='$room_type' ");
-  if(mysqli_num_rows($sql)) 
-  {
+
+  if(mysqli_num_rows($sql)){
   $msg= "<h1 style='color:red'>You have already booked this room</h1>";    
   }
-  else
-  {
 
-   $sql="insert into room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,Occupancy,check_in_date,check_in_time,check_out_date) 
-  values('$name','$email','$phone','$address','$city','$state','$zip','$country',
-  '$room_type','$Occupancy','$cdate','$ctime','$codate')";
-   if(mysqli_query($con,$sql))
-   {
-   $msg= "<h1 style='color:blue'>You have Successfully booked this room</h1><h2><a href='order.php'>View </a></h2>"; 
-   }
+  else{
+    $sql="insert into room_booking_details(name,email,phone,address,city,state,zip,contry,room_type,Occupancy,check_in_date,check_in_time,check_out_date) 
+    values('$name','$email','$phone','$address','$city','$state','$zip','$country',
+    '$room_type','$Occupancy','$cdate','$ctime','$codate')";
+
+    if(mysqli_query($con,$sql)){
+      $msg= "<h1 style='color:blue'>You have Successfully booked this room</h1><h2><a href='order.php'>View </a></h2>"; 
+    }
   }
 }
 ?>
@@ -44,9 +49,11 @@ if(isset($savedata))
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body style="margin-top:50px;">
+
   <?php
   include('includes/menu_bar.php');
   ?>
+
 <div class="container-fluid text-center"id="primary"><!--Primary Id-->
   <h1>[ BOOKING Form ]</h1><br>
   <div class="container">
@@ -185,8 +192,10 @@ if(isset($savedata))
       </div>
     </div>
   </div>
+
 <?php
 include('includes/footer.php')
 ?>
+
 </body>
 </html>
