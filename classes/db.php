@@ -116,6 +116,12 @@ class DB{
 
     }
 
+    /**
+     * A method to grab all user info by mail
+     *
+     * @param [string] $email
+     * @return void
+     */
     function get_user_info($email){
 
         $sql = "SELECT * FROM create_account where email='$email'";
@@ -129,5 +135,20 @@ class DB{
     }
 
 
+    function send_feedback($name, $email, $mobile, $message){
+
+        $sql = "INSERT INTO feedback VALUES('', '$name', '$email', '$mobile', '$message')";
+
+        $query = $this->conn->query($sql);
+
+        if($query){
+
+            $result = "Feedback sent succesfully";
+
+        }
+
+        return $result;
+        
+    }
 
 }

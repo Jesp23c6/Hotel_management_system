@@ -1,12 +1,27 @@
 <?php 
 include('connection.php');
 
+include('classes/db.php');
+
+$db = new DB();
+
 extract($_REQUEST);
 
+/* original code
 if(isset($send)){
   mysqli_query($con,"insert into feedback values('','$n','$e','$mob','$msg')");	
 
   $msg= "<h4 style='color:green;'>feedback sent successfully</h4>";
+}
+*/
+
+//my code
+if(isset($send)){
+
+  $feedback = $db->send_feedback($n, $e, $mob, $msg);
+
+  $msg = "<h4 style='color:green;'>" . $feedback . "</h4>";
+
 }
 ?>
 <!-- Footer1 Start Here-->
