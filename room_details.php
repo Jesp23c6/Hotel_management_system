@@ -49,19 +49,24 @@
 
   <?php
 
+    //This adds two empty array indexes.
     $files = scandir("image/".$res['type']);
 
     $counter = 1;
 
+    //This removes the two first empty indexes in the array.
+    array_shift($files);
+    array_shift($files);
+
+    //Cycles through the files to use them for the carousel. This is flexible for any picture file type as well.
     foreach($files as $file){
 
-      //echo($file);
-
+      //To make sure the first picture is the 'active' one, I depend on the $counter variable.
       if($counter == 1){
 
         echo("
         <div class='item active'>
-        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img1'>
+        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img" . $counter . "'>
         </div>
         ");
 
@@ -72,7 +77,7 @@
 
         echo("
         <div class='item'>
-        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img1'>
+        <img src='image/" . $res['type'] . "/" . $file . "' class='thumbnail' alt='img" . $counter . "'>
         </div>
         ");
 
@@ -83,30 +88,6 @@
     }
 
   ?>
-
-    <!-- <div class="item active">
-      <img src="image/<?php echo($res['type']); ?>/img1.jpg"class="thumbnail" alt="img1">
-    </div>
-
-    <div class="item">
-      <img src="image/<?php echo($res['type']); ?>/img2.jpg"class="thumbnail" alt="img2">
-    </div>
-
-    <div class="item">
-       <img src="image/<?php echo($res['type']); ?>/img3.jpg"class="thumbnail" alt="img3">
-    </div>
-
-    <div class="item">
-       <img src="image/<?php echo($res['type']); ?>/img4.jpg"class="thumbnail" alt="img4">
-    </div>
-
-    <div class="item">
-       <img src="image/<?php echo($res['type']); ?>/img5.jpg"class="thumbnail" alt="img5">
-    </div>
-
-    <div class="item">
-       <img src="image/<?php echo($res['type']); ?>/img6.jpg"class="thumbnail" alt="img6">
-    </div> -->
     
   </div>
 
@@ -122,14 +103,39 @@
 </div>
 
 		<h2 class="Ac_Room_Text"><?php echo $res['type']; ?></h2>
-    <h3 class="Ac_Room_Text"><?php echo $res['price']; ?></h3>
+
+    <?php
+
+      if($res['type'] !== "Parking Area"){
+
+        echo("<h3 class='Ac_Room_Text'>" . $res['price'] . "</h3>");
+
+      }
+    ?>
+
 		<p class="text-justify">
-      <?php echo $res['details']; ?>
-</p>
+      <?php 
+      echo($res['details']); 
+      ?>
+    </p>
     <div class="row">
-      <h2>Amenities & Facilities</h2>
-      <img src="image/icon/wifi.png"class="img-responsive">
-      <a href="Login.php" class="btn btn-danger">Book Now</a><br><br>
+    <?php
+
+      if($res['type'] !== "Parking Area"){
+
+        echo('<h2>Amenities & Facilities</h2>
+        <img src="image/icon/wifi.png"class="img-responsive">');
+
+        echo('<a href="Login.php" class="btn btn-danger">Book Now</a><br><br>');
+
+      }
+      else{
+
+        echo('<br>');
+
+      }
+      ?>
+
       </div>
 	</div>
 				<div class="col-sm-3">
@@ -138,7 +144,7 @@
 						<h4 align="center">Room Type</h4>
 					</div><br>
 					<div class="panel-body-right text-center">
-    <!--Fatch Mysql Database Select Query Room Details -->
+    <!--Fetch Mysql Database Select Query Room Details -->
 
 						<?php
             include('connection.php');
@@ -146,12 +152,12 @@
             $sql1=mysqli_query($con,"select * from rooms");
 
             while($result1= mysqli_fetch_assoc($sql1)){
+
+              echo("<a href=room_details.php?room_id=" . $result1['room_id'] . ">" . $result1['type'] . "</a><hr>");
+
+            }
             ?>
-
-            <a href="room_details.php?room_id=<?php echo $result1['room_id']; ?>"><?php echo $result1['type']; ?></a><hr>
-
-            <?php } ?>
-    <!--Fatch Mysql Database Select Query Room Details -->
+    <!--Fetch Mysql Database Select Query Room Details -->
     					
 					</div>
 				</div>
