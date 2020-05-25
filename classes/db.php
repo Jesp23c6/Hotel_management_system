@@ -129,6 +129,19 @@ class DB{
 
     }
 
+
+    function check_user($email){
+
+        $sql = "SELECT * FROM create_account WHERE email='$email'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->num_rows;
+
+        return $result;
+
+    }
+
     /**
      * A method to grab all user info by mail
      *

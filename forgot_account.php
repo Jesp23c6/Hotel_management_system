@@ -1,7 +1,14 @@
 <?php 
 include('connection.php');
+
+include('classes/db.php');
+
+$db = new DB();
+
 error_reporting(1);
 extract($_REQUEST);
+
+/* original code
 if(isset($submit))
 {
   $sql=mysqli_query($con,"select * from create_account where email='$email' ");
@@ -15,6 +22,30 @@ if(isset($submit))
     $error= "<h3 style='color:red'>Invalid  details</h3>"; 
     }  
 }
+*/
+
+//my code
+if(isset($submit)){
+
+  $user = $db->check_user($email);
+
+  var_dump($user);
+
+  if($user > 0){
+
+    $info = $db->get_user_info($email);
+
+    $error = "<h3 style='color:blue'> Your password is: " . $info['password'] . "</h3>";
+
+  }
+  else{
+
+    $error = "<h3 style='color:red'> Invalid details</h3>";
+
+  }
+  
+}
+
 ?>  
 <!DOCTYPE html>
 <html lang="en">
