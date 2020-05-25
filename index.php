@@ -2,6 +2,10 @@
 session_start();
 error_reporting(1);
 include('connection.php');
+include('classes/db.php');
+
+$db = new DB();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +35,7 @@ include('connection.php');
     <!-- Wrapper for slides -->
 
     <div class="carousel-inner" role="listbox">
-      <?php
+      <?php /* original code
 		$i=1;
 	  $sql=mysqli_query($con,"select * from slider");
 		while($slider=mysqli_fetch_assoc($sql))
@@ -63,7 +67,46 @@ include('connection.php');
 		<?php	} ?>
 	  
 	  
-		<?php $i++; } ?>
+    <?php $i++; } 
+    */
+
+      //my code
+      $slider_info = $db->all_sliders();
+
+        $counter = 1;
+
+      while($slider = $slider_info->fetch_assoc()){
+
+        $slider_img = $slider['image'];
+        $slider_cap = $slider['caption'];
+        $path = "image/Slider/$slider_img";
+
+        if($counter == 1){
+
+          echo('<div class="item active">
+          <img src="' . $path . '" alt="Image">
+          <div class="carousel-caption">
+          <h2>' . $slider_cap . '</h2>
+          </div>      
+          </div>');
+
+        }
+        else{
+
+          echo('<div class="item">
+          <img src="' . $path . '" alt="Image">
+          <div class="carousel-caption">
+          <h2>' . $slider_cap . '</h2>
+          </div>      
+          </div>');
+
+        }
+
+        $counter = $counter + 1;
+
+      }
+
+    ?>
       
 	  
     </div>
@@ -88,7 +131,7 @@ include('connection.php');
     <div class="hov"><!--Hov is Class-->
     
 	
-	<?php 
+	<?php /* original code
 	$sql=mysqli_query($con,"select * from rooms");
 	while($r_res=mysqli_fetch_assoc($sql)){
 	?>
@@ -100,7 +143,27 @@ include('connection.php');
 	    <a href="room_details.php?room_id=<?php echo $r_res['room_id']; ?>" class="btn btn-danger text-center">Read more</a><br><br>
     </div>
 
-	<?php } ?>
+  <?php } 
+  */
+  ?>
+
+  <?php
+
+    //my code
+    $all_rooms = $db->all_rooms();
+
+    while($r_res = $all_rooms->fetch_assoc()){
+
+      echo('<div class="col-sm-4">
+      <img src="image/rooms/' . $r_res['image'] . '"class="img-responsive thumbnail"alt="Image"id="img1"> <!--Id Is Img-->
+      <h4 class="Room_Text">[' . $r_res['type'] . ']</h4>
+      <p class="text-justify">' . substr($r_res['details'],0,100) . '</p><br>
+	    <a href="room_details.php?room_id=' . $r_res['room_id'] . '" class="btn btn-danger text-center">Read more</a><br><br>
+      </div>');
+
+    }
+
+  ?>
   
   </div>
   </div>

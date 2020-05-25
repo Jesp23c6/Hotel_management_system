@@ -160,7 +160,15 @@ class DB{
 
     }
 
-
+    /**
+     * Method to send feedback
+     *
+     * @param [string] $name
+     * @param [string] $email
+     * @param [int] $mobile
+     * @param [string] $message
+     * @return void
+     */
     function send_feedback($name, $email, $mobile, $message){
 
         $sql = "INSERT INTO feedback VALUES('', '$name', '$email', '$mobile', '$message')";
@@ -176,5 +184,36 @@ class DB{
         return $result;
         
     }
+
+    /**
+     * Get all information from rooms
+     *
+     * @return $query
+     */
+    function all_rooms(){
+
+        $sql = "SELECT * FROM rooms";
+
+        $query = $this->conn->query($sql);
+
+        return $query;
+
+    }
+
+    /**
+     * Get all information from slider
+     *
+     * @return $query
+     */
+    function all_sliders(){
+
+        $sql = "SELECT * FROM slider";
+
+        $query = $this->conn->query($sql);
+
+        return $query;
+
+    }
+
 
 }
