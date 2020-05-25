@@ -2,20 +2,30 @@
 
 include('includes/menu_bar.php');
 
+include('classes/db.php');
+
+$db = new DB();
+
 include('connection.php');
 
 if($eid==""){
-header('location:Login.php');
+  header('location:Login.php');
 }
 
+/* original code
 $sql= mysqli_query($con,"select * from create_account where email='$eid' "); 
 
 $result=mysqli_fetch_assoc($sql);
+*/
+
+//my code
+$result = $db->get_user_info($eid);
 
 extract($_REQUEST);
 
 error_reporting(1);
 
+/* original code
 if(isset($savedata)){
 
   $sql= mysqli_query($con,"select * from room_booking_details where email='$email' and room_type='$room_type' ");
@@ -34,6 +44,27 @@ if(isset($savedata)){
     }
   }
 }
+*/
+
+//my code
+
+if(isset($savedata)){
+
+  $order = $db->new_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $Occupancy, $cdate, $ctime, $codate);
+
+  if($order == "You have already booked this room"){
+
+    $msg = "<h1 style='color:red'>" . $order . "</h1>";
+
+  }
+  else{
+
+    $msg = "<h1 style='color:blue'>" . $order . "</h1><h2><a href='order.php'>View </a></h2>";
+
+  }
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +97,7 @@ if(isset($savedata)){
            <div class="row">
               <div class="control-label col-sm-4"><h4> Name :</h4></div>
                 <div class="col-sm-8">
-                 <input type="text" value="<?php echo $result['name']; ?>" readonly="readonly" class="form-control" name="name" placeholder="Enter Your Frist Name"required>
+                 <input type="text" value="<?php echo $result['name']; ?>" class="form-control" name="name" placeholder="Enter Your Frist Name"required>
           </div>
         </div>
       </div>

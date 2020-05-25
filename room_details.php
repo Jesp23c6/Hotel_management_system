@@ -115,7 +115,9 @@
 
 		<p class="text-justify">
       <?php 
-      echo($res['details']); 
+
+        echo($res['details']); 
+        
       ?>
     </p>
     <div class="row">
