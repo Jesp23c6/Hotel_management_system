@@ -12,9 +12,10 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body style="margin-top:50px;">
-<?php
+  <?php
       include('includes/menu_bar.php')
-  ?><br>
+  ?>
+  <br>
 <div class="container-fluid text-center">
 <div class="container"> 
   <div class="row content">

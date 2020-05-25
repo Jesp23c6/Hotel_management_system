@@ -117,6 +117,19 @@ class DB{
     }
 
     /**
+     * A method to delete an order.
+     *
+     * @param [int] $order_id
+     */
+    function cancel_order($order_id){
+
+        $sql = "DELETE FROM room_booking_details WHERE id='$order_id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
      * A method to grab all user info by mail
      *
      * @param [string] $email
