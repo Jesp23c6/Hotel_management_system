@@ -5,6 +5,10 @@
 
   include('connection.php');
 
+  include("classes/db.php");
+
+  $db = new DB();
+
   $eid=$_SESSION['create_account_logged_in'];
 
   extract($_REQUEST);
@@ -13,8 +17,8 @@
 
     $pass = md5($salt.$pass);
 
-    $que="update create_account set name='$name',password='$pass',mobile='$mob',address='$add' where email='$eid'";
-    mysqli_query($con,$que);
+    $db->update_profile($name, $mob, $add, $eid);
+
     $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
 
   }
@@ -39,15 +43,14 @@
 <body style="margin-top:50px;">
 
     <?php
-    include('includes/menu_bar.php');
-  ?>
+        include('includes/menu_bar.php');
+    ?>
 
     <?php
 
-    $sql= mysqli_query($con,"select * from create_account where email='$eid' "); 
-    $result=mysqli_fetch_assoc($sql);
+    $result = $db->get_user_info($eid);
 
-  ?>
+    ?>
     <div class="container-fluid" id="primary">
         <!--Primary Id-->
         <center>
@@ -80,17 +83,6 @@
                                 <div class="col-sm-8">
                                     <input type="text" value="<?php echo $result['email']; ?>" class="form-control"
                                         /readonly="readonly">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="control-label col-sm-4">
-                                    <h4>Password:</h4>
-                                </div>
-                                <div class="col-sm-8">
-                                    <input type="text" name="pass" value="<?php echo $result['password']; ?>"
-                                        class="form-control" />
                                 </div>
                             </div>
                         </div>
@@ -132,6 +124,15 @@
                                 <div class="control-label col-sm-5"></div>
                                 <div class="col-sm-7	">
                                     <input type="submit" value="Update Profile" name="update" class="btn btn-primary" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="control-label col-sm-5"></div>
+                                <div class="col-sm-7	">
+                                    <a href="reset.php" class="btn btn-primary">Change password</a>
                                 </div>
                             </div>
                         </div>

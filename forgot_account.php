@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 include('connection.php');
 
@@ -8,6 +9,8 @@ $db = new DB();
 
 error_reporting(1);
 extract($_REQUEST);
+
+$message = $_SESSION['forgot_user_msg'];
 
 //my code
 if(isset($submit)){
@@ -60,9 +63,8 @@ if(isset($submit)){
                 <div class="col-sm-6">
                     <h1 style="margin-top:50px;padding-top:50px;">Forgot Account?</h1>
                     <hr>
-                    <?php echo  @$error; ?>
                     <p class="text-center">Please Enter your Email-id or Phone Number to Find Your Account.</p><br><br>
-                    <form method="post">
+                    <form method="post" action="reset_handler.php">
                         <div class="form-group">
                             <input type="Email" name="email" class="form-control" id="#"
                                 placeholder="Email Id or Phone Number" required>
@@ -70,6 +72,7 @@ if(isset($submit)){
                         <hr>
                         <input type="submit" value="submit" name="submit" class="btn btn-primary btn-group-justified"
                             required>
+                            <?php echo  $message; ?>
                     </form><br><br><br><br>
                 </div>
             </div>

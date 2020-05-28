@@ -215,5 +215,114 @@ class DB{
 
     }
 
+    /**
+     * A method to update password.
+     *
+     * @param [string] $mail
+     * @param [string] $password
+     * @return void
+     */
+    function update_password($mail, $password){
+
+        $sql = "UPDATE create_account SET password='$password' WHERE email='$mail'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to update profile.
+     *
+     * @param [string] $name
+     * @param [string] $password
+     * @param [int] $mobile
+     * @param [string] $address
+     * @param [string] $mail
+     * @return void
+     */
+    function update_profile($name, $mobile, $address, $mail){
+
+        $sql = "UPDATE create_account SET name='$name', mobile='$mobile', address='$address' where email='$mail'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * Generates an email key for password reset.
+     *
+     * @param [string] $mail
+     * @return void
+     */
+    function email_key_gen($mail){
+
+        $salt = "soy is liquid salt";
+
+        $email_key = md5($salt . $mail . rand(1, 100));
+
+        $sql = "UPDATE create_account SET email_key='$email_key' WHERE email='$mail'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+
+    function get_email_key($mail){
+
+        $sql = "SELECT * FROM create_account WHERE email='$mail'";
+
+        $query = $this->conn->query($sql);
+
+        $result = "";
+
+        while($res = $query->fetch_assoc()){
+
+            $result = $res['email_key'];
+
+        }
+
+        return $result;
+
+    }
+
+    /**
+     * Undocumented function
+     *
+     * @param [type] $mail
+     * @param [type] $mail_key
+     * @return void
+     */
+    function check_password_reset($mail, $get_key){
+
+        $sql = "SELECT * FROM create_account WHERE email='$mail'";
+
+        $query = $this->conn->query($sql);
+
+        $result;
+
+        $mail_key = "";
+
+        while($res = $query->fetch_assoc()){
+
+            $mail_key = $res['email_key'];
+
+        }
+
+        if($mail_key == $get_key){
+
+            $result = true;
+
+        }
+        else{
+
+            $result = false;
+
+        }
+
+        return $result;
+
+    }
+
+
 
 }
