@@ -1,8 +1,8 @@
 <?php 
-session_start();
+    session_start();
 
-unset($_SESSION['admin_logged_in']);	
+    unset($_SESSION['admin_logged_in']);	
 
-header('location:index.php');
+    header('location:index.php');
 
 ?>
