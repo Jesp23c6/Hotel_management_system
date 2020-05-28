@@ -20,9 +20,9 @@
 
   if(isset($update)){
 
-    $Passw = md5($salt.$Passw);
+    $pass = md5($salt.$Passw);
 
-    mysqli_query($con,"update create_account set name='$fname',email='$email',password='$Passw',mobile='$mobi',address='$addr',gender='$gend',country='$countr'where email='$eid'");
+    mysqli_query($con,"update create_account set name='$fname',email='$email',password='$Pass',mobile='$mobi',address='$addr',gender='$gend',country='$countr'where email='$eid'");
 
   }
 ?>
