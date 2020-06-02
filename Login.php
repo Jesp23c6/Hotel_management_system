@@ -12,34 +12,36 @@
 
   require('classes/db.php');
 
-  require('connection.php');
+  $db = new DB();
 
   extract($_REQUEST);
-
+  
   if(isset($login)){
 
-    if($eid=="" || $pass==""){
-      $error= "<h4 style='color:red'>fill all details</h4>";  
-    }   
+    if($eid == "" || $pass == ""){
 
+      $error = "<h4 style='color:red'>fill all details</h4>";
+
+    }
     else{
 
-      $pass = md5($salt.$pass);
+      $login = $db->user_login($eid, $pass);
 
-      $sql=mysqli_query($con,"select * from create_account where email='$eid' && password='$pass' ");
+      if($login > 0){
 
-      if(mysqli_num_rows($sql)){
+        $_SESSION['create_account_logged_in'] = $eid;
 
-        $_SESSION['create_account_logged_in']=$eid;  
-        header('location:index.php'); 
+        header('location: index.php');
 
       }
       else{
 
-        $error= "<h4 style='color:red'>Invalid login details</h4>";
+        $error = "<h4 style='color:red'>Invalid login details</h4>";
 
-      } 
+      }
+
     }
+
   }
 
 ?>

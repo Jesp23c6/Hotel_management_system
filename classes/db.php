@@ -2,6 +2,8 @@
 header('Content-Type: text/html; charset=utf-8');
 class DB{
     
+    public $salt = "this1is2salt";
+
     public $conn;
 
     /**
@@ -324,17 +326,17 @@ class DB{
     }
 
     /**
-     * Undocumented function
+     * A method to create a user.
      *
-     * @param [type] $name
-     * @param [type] $email
-     * @param [type] $password
-     * @param [type] $mobile
-     * @param [type] $address
-     * @param [type] $gender
-     * @param [type] $country
-     * @param [type] $picture
-     * @return void
+     * @param [string] $name
+     * @param [string] $email
+     * @param [string] $password
+     * @param [int] $mobile
+     * @param [string] $address
+     * @param [string] $gender
+     * @param [string] $country
+     * @param [string] $picture
+     * 
      */
     function create_user($name, $email, $password, $mobile, $address, $gender, $country, $picture){
 
@@ -342,16 +344,18 @@ class DB{
 
         $query = $this->conn->query($sql);
 
-        if($query){
+    }
 
-            $result = "Yass queen slay";
 
-        }
-        else{
+    function user_login($email, $password){
 
-            $result = "nayyy";
+        $password = md5($this->salt . $password);
 
-        }
+        $sql = "SELECT * FROM create_account WHERE email='$email' AND password='$password'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->num_rows;
 
         return $result;
 

@@ -113,7 +113,6 @@
 
                     <?php
 
-                      //my code
                       $all_rooms = $db->all_rooms();
 
                       while($r_res = $all_rooms->fetch_assoc()){

@@ -1,16 +1,15 @@
 <?php 
 
-include('connection.php');
+    include('connection.php');
 
-include('classes/db.php');
+    include('classes/db.php');
 
-$db = new DB();
+    $db = new DB();
 
-$oid=$_GET['order_id'];
+    $oid=$_GET['order_id'];
 
-//my code
-$cancel = $db->cancel_order($oid);
+    $cancel = $db->cancel_order($oid);
 
-header('location: order.php');
+    header('location: order.php');
 
 ?>
