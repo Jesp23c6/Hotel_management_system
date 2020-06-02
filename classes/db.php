@@ -226,6 +226,8 @@ class DB{
      */
     function update_password($mail, $password){
 
+        $password = md5($this->salt . $password);
+
         $sql = "UPDATE create_account SET password='$password' WHERE email='$mail'";
 
         $query = $this->conn->query($sql);
@@ -367,6 +369,12 @@ class DB{
 
     }
 
+    /**
+     * Method to get all orders.
+     *
+     * @param [string] $email
+     * @return [array] $result
+     */
     function view_order($email){
 
         $sql = "SELECT * FROM room_booking_details WHERE email='$email'";
@@ -374,6 +382,24 @@ class DB{
         $query = $this->conn->query($sql);
 
         $result = $query->fetch_assoc();
+
+    }
+
+    /**
+     * A method to get a room's information from room_id
+     *
+     * @param [type] $room_id
+     * @return [array] $result
+     */
+    function get_room($room_id){
+
+        $sql = "SELECT * FROM rooms WHERE room_id='$room_id'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->fetch_assoc();
+
+        return $result;
 
     }
 

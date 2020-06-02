@@ -39,8 +39,6 @@
 
             $testmsg = "Correct mail key";
 
-            $password = md5($salt . $pass);
-
             $db->update_password($mail, $password);
 
             $db->email_key_gen($mail);
@@ -55,9 +53,6 @@
         }
 
     }
-
-    var_dump($testmsg);
-    var_dump($mail_check);
 
 ?>
 

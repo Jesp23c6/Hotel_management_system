@@ -15,8 +15,6 @@
 
   if(isset($update)){
 
-    $pass = md5($salt.$pass);
-
     $db->update_profile($name, $mob, $add, $eid);
 
     $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";

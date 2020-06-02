@@ -4,6 +4,8 @@
 
   require('classes/db.php');
 
+  $db = new DB();
+
 ?>
 
 <!DOCTYPE html>
@@ -28,13 +30,11 @@
   ?>
 
   <?php 
-    include('connection.php');
 
     $room_id=$_GET['room_id'];
 
-    $sql=mysqli_query($con,"select * from rooms where room_id='$room_id' ");
-
-    $res=mysqli_fetch_assoc($sql);
+    $res = $db->get_room($room_id);
+    
   ?>
 
     <br><br><br>
@@ -159,15 +159,15 @@
                             <!--Fetch Mysql Database Select Query Room Details -->
 
                             <?php
-                              include('connection.php');
 
-                              $sql1=mysqli_query($con,"select * from rooms");
+                              $rooms = $db->all_rooms();
 
-                              while($result1= mysqli_fetch_assoc($sql1)){
+                              while($result1 = $rooms->fetch_assoc()){
 
                                 echo("<a href=room_details.php?room_id=" . $result1['room_id'] . ">" . $result1['type'] . "</a><hr>");
 
                               }
+                              
                             ?>
                             <!--Fetch Mysql Database Select Query Room Details -->
 
