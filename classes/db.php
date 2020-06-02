@@ -346,7 +346,13 @@ class DB{
 
     }
 
-
+    /**
+     * Method that logs in the user.
+     *
+     * @param [string] $email
+     * @param [string] $password
+     * @return $result
+     */
     function user_login($email, $password){
 
         $password = md5($this->salt . $password);
@@ -358,6 +364,16 @@ class DB{
         $result = $query->num_rows;
 
         return $result;
+
+    }
+
+    function view_order($email){
+
+        $sql = "SELECT * FROM room_booking_details WHERE email='$email'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->fetch_assoc();
 
     }
 

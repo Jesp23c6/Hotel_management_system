@@ -4,11 +4,11 @@
 
   require('classes/db.php');
 
+  $db = new DB();
+
   error_reporting(1);
 
-  include('connection.php');
-
-  $eid=$_SESSION['create_account_logged_in'];
+  $eid = $_SESSION['create_account_logged_in'];
 
 ?>
 <!DOCTYPE html>
@@ -53,9 +53,7 @@
                     </tr>
                     <?php 
 
-                      $sql= mysqli_query($con,"select * from room_booking_details where email='$eid' "); 
-
-                      while($result=mysqli_fetch_assoc($sql)){
+                      while($result = $db->view_order($eid)){
                         $oid=$result['id'];
                         echo "<tr>";
                         echo "<td>".$result['name']."</td>";
