@@ -1,3 +1,10 @@
+<?php
+
+    session_start();
+
+    require('classes/db.php');
+
+?>
 <!DOCTYPE html>
 <html>
 

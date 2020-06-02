@@ -5,7 +5,7 @@
 
   include('connection.php');
 
-  include("classes/db.php");
+  require("classes/db.php");
 
   $db = new DB();
 

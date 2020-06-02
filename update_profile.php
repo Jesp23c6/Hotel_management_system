@@ -3,6 +3,8 @@
 
   include('connection.php');
 
+  require('classes/db.php');
+
   error_reporting(1);
 
   $eid=$_SESSION['create_account_logged_in'];

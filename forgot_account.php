@@ -1,38 +1,38 @@
 <?php 
-session_start();
+  session_start();
 
-include('connection.php');
+  include('connection.php');
 
-include('classes/db.php');
+  require('classes/db.php');
 
-$db = new DB();
+  $db = new DB();
 
-error_reporting(1);
-extract($_REQUEST);
+  error_reporting(1);
+  extract($_REQUEST);
 
-$message = $_SESSION['forgot_user_msg'];
+  $message = $_SESSION['forgot_user_msg'];
 
-//my code
-if(isset($submit)){
+  //my code
+  if(isset($submit)){
 
-  $user = $db->check_user($email);
+    $user = $db->check_user($email);
 
-  var_dump($user);
+    var_dump($user);
 
-  if($user > 0){
+    if($user > 0){
 
-    $info = $db->get_user_info($email);
+      $info = $db->get_user_info($email);
 
-    $error = "<h3 style='color:blue'> Your password is: " . $info['password'] . "</h3>";
+      $error = "<h3 style='color:blue'> Your password is: " . $info['password'] . "</h3>";
 
+    }
+    else{
+
+      $error = "<h3 style='color:red'> Invalid details</h3>";
+
+    }
+    
   }
-  else{
-
-    $error = "<h3 style='color:red'> Invalid details</h3>";
-
-  }
-  
-}
 
 ?>
 <!DOCTYPE html>

@@ -2,7 +2,7 @@
 
 session_start();
 
-include('classes/db.php');
+require('classes/db.php');
 
 $db = new DB();
 

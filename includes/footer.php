@@ -1,7 +1,4 @@
-<?php 
-  include('connection.php');
-
-  include('classes/db.php');
+<?php
 
   $db = new DB();
 

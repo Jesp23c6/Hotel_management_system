@@ -323,6 +323,38 @@ class DB{
 
     }
 
+    /**
+     * Undocumented function
+     *
+     * @param [type] $name
+     * @param [type] $email
+     * @param [type] $password
+     * @param [type] $mobile
+     * @param [type] $address
+     * @param [type] $gender
+     * @param [type] $country
+     * @param [type] $picture
+     * @return void
+     */
+    function create_user($name, $email, $password, $mobile, $address, $gender, $country, $picture){
 
+        $sql="insert into create_account(name,email,password,mobile,address,gender,country,pictrure) values('$name','$email','$password','$mobile','$address','$gender','$country','$picture')";
+
+        $query = $this->conn->query($sql);
+
+        if($query){
+
+            $result = "Yass queen slay";
+
+        }
+        else{
+
+            $result = "nayyy";
+
+        }
+
+        return $result;
+
+    }
 
 }

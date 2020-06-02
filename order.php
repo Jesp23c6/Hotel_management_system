@@ -1,12 +1,14 @@
 <?php 
 
-session_start();
+  session_start();
 
-error_reporting(1);
+  require('classes/db.php');
 
-include('connection.php');
+  error_reporting(1);
 
-$eid=$_SESSION['create_account_logged_in'];
+  include('connection.php');
+
+  $eid=$_SESSION['create_account_logged_in'];
 
 ?>
 <!DOCTYPE html>

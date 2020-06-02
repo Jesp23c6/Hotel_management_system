@@ -1,30 +1,41 @@
 <?php
-  include('connection.php');
 
-  extract($_REQUEST);
+    session_start();
 
-  if(isset($save)){
-    $sql= mysqli_query($con,"select * from create_account where email='$email' ");
-  
-    if(mysqli_num_rows($sql)){
-    
-      $msg= "<h1 style='color:red'> account already exists</h1>";    
-  
+    include('connection.php');
+
+    require('classes/db.php');
+
+    $db = new DB();
+
+    extract($_REQUEST);
+
+    if(isset($save)){
+
+        $check_user = $db->check_user($email);
+
+        if($check_user > 0){
+
+            $message = "<h1 style='color:red'> account already exists</h1>";
+
+        }
+        else{
+
+            $Passw = md5($salt . $Passw);
+
+            $db->create_user($fname, $email, $Passw, $mobi, $addr, $gend, $countr, $pict);
+
+            $check_user = $db->check_user($email);
+
+            if($check_user > 0){
+
+                $message = "<h1 style='color:green'>Data Saved Successfully</h1>";
+
+            }
+
+        }
+
     }
-    else{
-
-      $Passw = md5($salt.$Passw);
-
-      $sql="insert into create_account(name,email,password,mobile,address,gender,country,pictrure) values('$fname','$email','$Passw','$mobi','$addr','$gend','$countr','$pict')";
-    
-      if(mysqli_query($con,$sql)){
-
-        $msg= "<h1 style='color:green'>Data Saved Successfully</h1>"; 
-   
-        header('location:Login.php');
-      }
-    }
-  }
 
 ?>
 
@@ -58,7 +69,7 @@
                             <font color="#080808">Create New Account?</font>
                         </b></h1>
                 </center>
-                <center><?php echo @$msg;?></center><br>
+                <center><?php echo @$message;?></center><br>
                 <div class="col-sm-2"></div>
                 <div class="col-sm-6 ">
                     <form class="form-horizontal" method="post">

@@ -1,43 +1,46 @@
-<?php 
-session_start();
+<?php
+ 
+  session_start();
 
-error_reporting(1);
+  error_reporting(1);
 
-if($_SESSION['create_account_logged_in']!=""){
-  header('location:booking_form.php');
-}
+  if($_SESSION['create_account_logged_in']!=""){
+    header('location:booking_form.php');
+  }
 
-error_reporting(1);
+  error_reporting(1);
 
-require('connection.php');
+  require('classes/db.php');
 
-extract($_REQUEST);
+  require('connection.php');
 
-if(isset($login)){
+  extract($_REQUEST);
 
-  if($eid=="" || $pass==""){
-    $error= "<h4 style='color:red'>fill all details</h4>";  
-  }   
+  if(isset($login)){
 
-  else{
+    if($eid=="" || $pass==""){
+      $error= "<h4 style='color:red'>fill all details</h4>";  
+    }   
 
-    $pass = md5($salt.$pass);
-
-    $sql=mysqli_query($con,"select * from create_account where email='$eid' && password='$pass' ");
-
-    if(mysqli_num_rows($sql)){
-
-      $_SESSION['create_account_logged_in']=$eid;  
-      header('location:index.php'); 
-
-    }
     else{
 
-      $error= "<h4 style='color:red'>Invalid login details</h4>";
+      $pass = md5($salt.$pass);
 
-    } 
+      $sql=mysqli_query($con,"select * from create_account where email='$eid' && password='$pass' ");
+
+      if(mysqli_num_rows($sql)){
+
+        $_SESSION['create_account_logged_in']=$eid;  
+        header('location:index.php'); 
+
+      }
+      else{
+
+        $error= "<h4 style='color:red'>Invalid login details</h4>";
+
+      } 
+    }
   }
-}
 
 ?>
 <!DOCTYPE html>

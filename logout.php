@@ -1,9 +1,9 @@
 <?php 
 
-session_start();
+    session_start();
 
-$_SESSION['create_account_logged_in']=$eid;  
+    $_SESSION['create_account_logged_in']=$eid;  
 
-header('location:index.php'); 
+    header('location:index.php'); 
 
 ?>

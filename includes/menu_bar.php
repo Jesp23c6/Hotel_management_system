@@ -1,5 +1,4 @@
 <?php 
-  session_start();
 
   /**
   * Making sure that $eid only gets made if the session variable is set.

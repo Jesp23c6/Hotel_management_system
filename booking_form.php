@@ -1,41 +1,43 @@
 <?php 
 
-include('includes/menu_bar.php');
+    session_start();
 
-include('classes/db.php');
+    include('includes/menu_bar.php');
 
-$db = new DB();
+    require('classes/db.php');
 
-include('connection.php');
+    $db = new DB();
 
-if($eid==""){
-  header('location:Login.php');
-}
+    include('connection.php');
 
-//my code
-$result = $db->get_user_info($eid);
+    if($eid==""){
+    header('location:Login.php');
+    }
 
-extract($_REQUEST);
+    //my code
+    $result = $db->get_user_info($eid);
 
-error_reporting(1);
+    extract($_REQUEST);
 
-//my code
-if(isset($savedata)){
+    error_reporting(1);
 
-  $order = $db->new_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $Occupancy, $cdate, $ctime, $codate);
+    //my code
+    if(isset($savedata)){
 
-  if($order == "You have already booked this room"){
+    $order = $db->new_order($name, $email, $phone, $address, $city, $state, $zip, $country, $room_type, $Occupancy, $cdate, $ctime, $codate);
 
-    $msg = "<h1 style='color:red'>" . $order . "</h1>";
+    if($order == "You have already booked this room"){
 
-  }
-  else{
+        $msg = "<h1 style='color:red'>" . $order . "</h1>";
 
-    $msg = "<h1 style='color:blue'>" . $order . "</h1><h2><a href='order.php'>View </a></h2>";
+    }
+    else{
 
-  }
+        $msg = "<h1 style='color:blue'>" . $order . "</h1><h2><a href='order.php'>View </a></h2>";
 
-}
+    }
+
+    }
 
 ?>
 <!DOCTYPE html>

@@ -1,10 +1,11 @@
 <?php 
-session_start();
-error_reporting(1);
-include('connection.php');
-include('classes/db.php');
 
-$db = new DB();
+  session_start();
+  error_reporting(1);
+  include('connection.php');
+  include('classes/db.php');
+
+  $db = new DB();
 
 ?>
 <!DOCTYPE html>
