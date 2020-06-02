@@ -1,3 +1,10 @@
+<?php
+
+    require('../classes/db.php');
+
+    $db = new DB();
+
+?>
 <table class="table table-bordered table-striped table-hover">
     <h1>Customer Booking Details</h1>
     <hr>
@@ -20,9 +27,11 @@
     <?php 
 		$i=1;
 
-		$sql=mysqli_query($con,"select * from customer");
+		//$sql=mysqli_query($con,"select * from customer");
 
-		while($res=mysqli_fetch_assoc($sql)){
+        $customer_info = $db->all_customer_info();
+
+		while($res = $customer_info->fetch_assoc()){
 	?>
     <tr>
         <td><?php echo $i;$i++; ?></td>

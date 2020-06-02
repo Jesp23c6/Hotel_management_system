@@ -1,16 +1,51 @@
-<?php 
+<?php
+
+    if(isset($add)){
+
+        $room_taken = $db->room_by_num($rno);
+
+        if($room_taken > 0){
+
+            echo('This rom is already added');
+
+        }
+        else{
+
+            $img = $_FILES['img']['name'];
+
+            $db->add_room($rno, $type, $price, $details, $img);
+
+            move_uploaded_file($_FILES['img']['tmp_name'], "../image/rooms/" . $_FILES['img']['name']);
+
+            echo('Room added successfully');
+
+        }
+
+    }
+
+    /*
 	if(isset($add)){
-		$sql=mysqli_query($con,"select * from rooms where room_no='$rno'");
+
+        $sql=mysqli_query($con,"select * from rooms where room_no='$rno'");
+        
 		if(mysqli_num_rows($sql)){
-			echo "this room is already added";	
+
+            echo "this room is already added";	
+            
 		}		
 		else{	
-			$img=$_FILES['img']['name'];
-			mysqli_query($con,"insert into rooms values('','$rno','$type','$price','$details','$img')");	
-			move_uploaded_file($_FILES['img']['tmp_name'],"../image/rooms/".$_FILES['img']['name']);
-			echo "Rooms added successfully";
+
+            $img=$_FILES['img']['name'];
+            
+            mysqli_query($con,"insert into rooms values('','$rno','$type','$price','$details','$img')");
+            	
+            move_uploaded_file($_FILES['img']['tmp_name'],"../image/rooms/".$_FILES['img']['name']);
+            
+            echo "Rooms added successfully";
+            
 		}
-	}
+    }
+    */
 ?>
 
 <form method="post" enctype="multipart/form-data">

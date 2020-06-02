@@ -1,14 +1,13 @@
-<?php 
-    include('../connection.php');
+<?php
+
+    require('../classes/db.php');
+
+    $db = new DB();
 
     $id=$_GET['id'];
 
-    $sql=mysqli_query($con,"select * from feedback where id='$id'");
+    $db->delete_feedback($id);
 
-    $res=mysqli_fetch_assoc($sql);
-
-    if(mysqli_query($con,"delete from feedback where id='$id'")){
-        header('location:dashboard.php?option=feedback');	
-    }
+    header('location: dashboard.php?option=feedback');
 
 ?>

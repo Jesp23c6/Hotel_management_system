@@ -25,12 +25,6 @@ class DB{
     
     }
 
-    function check_login(){
-
-
-
-    }
-
     /**
      * Checks if an order already exists.
      * 
@@ -400,6 +394,145 @@ class DB{
         $result = $query->fetch_assoc();
 
         return $result;
+
+    }
+
+    /**
+     * Admin method for deleting orders.
+     *
+     * @param [int] $order_id
+     * 
+     */
+    function admin_delete_order($order_id){
+
+        $sql = "DELETE FROM room_booking_details WHERE id='$order_id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to get all customer info.
+     *
+     */
+    function all_customer_info(){
+
+        $sql = "SELECT * FROM customer";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to getting feedback by id.
+     *
+     * @param [int] $id
+     * 
+     */
+    function get_feedback($id){
+
+        $sql = "SELECT * FROM feedback WHERE id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to delete feedback
+     *
+     * @param [int] $id
+     * 
+     */
+    function delete_feedback($id){
+
+        $sql = "DELETE FROM feedback WHERE id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to get slider by id.
+     *
+     * @param [int] $id
+     * 
+     */
+    function get_slider($id){
+
+        $sql = "SELECT * FROM slider WHERE id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to delete a slider.
+     *
+     * @param [int] $id
+     * 
+     */
+    function delete_slider($id){
+
+        $sql = "DELETE FROM slider WHERE id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    /**
+     * A method to log in admin users
+     *
+     * @param [string] $email
+     * @param [string] $password
+     * @return $result
+     */
+    function admin_login($email, $password){
+
+        //$password = md5($this->salt . $password);
+
+        $sql = "SELECT * FROM admin WHERE username='$email' && password='$password'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->num_rows;
+
+        return $result;
+
+    }
+
+    /**
+     * A method to check if any room with the number exists
+     *
+     * @param [int] $room_number
+     * @return $result
+     */
+    function room_by_num($room_number){
+
+        $sql = "SELECT * FROM rooms WHERE room_no='$room_number'";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->num_rows;
+
+        return $result;
+
+    }
+
+    /**
+     * A method to add a room.
+     *
+     * @param [int] $room_no
+     * @param [string] $type
+     * @param [int] $price
+     * @param [string] $details
+     * @param [string] $img
+     * 
+     */
+    function add_room($room_no, $type, $price, $details, $img){
+
+        $sql = "insert into rooms values('','$room_no','$type','$price','$details','$img')";
+
+        $query = $this->conn->query($sql);
 
     }
 

@@ -1,11 +1,12 @@
 <?php 
-    include('../connection.php');
+    require('../classes/db.php');
+
+    $db = new DB();
 
     $oid=$_GET['booking_id'];
 
-    $q=mysqli_query($con,"delete from  room_booking_details where id='$oid' ");
+    $delete = $db->admin_delete_order($oid);
 
-    if($q){
-        header('location:dashboard.php?option=booking_details');
-    }
+    header('location:dashboard.php?option=booking_details');
+
 ?>  

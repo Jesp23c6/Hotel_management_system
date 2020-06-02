@@ -17,7 +17,7 @@
 
     $db->update_profile($name, $mob, $add, $eid);
 
-    $msg= "<h3 style='color:blue'>Profile Updated successfully</h3>";
+    $message= "<h3 style='color:blue'>Profile Updated successfully</h3>";
 
   }
 ?>
@@ -58,7 +58,7 @@
         </center><br>
         <div class="container">
             <div class="row">
-                <center><?php  echo $msg; ?></center>
+                <center><?php  echo $message; ?></center>
                 <form class="form-horizontal" method="post">
                     <div class="col-sm-6">
                         <div class="form-group">

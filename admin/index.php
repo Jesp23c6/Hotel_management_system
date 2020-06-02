@@ -3,29 +3,40 @@
 
   error_reporting(1);
 
-  require('../connection.php');
+  require('../classes/db.php');
+
+  $db = new DB();
 
   extract($_REQUEST);
 
   if(isset($login)){
-	  if($eid=="" || $pass==""){
-	    $error= "<h3 style='color:red'>fill all details</h3>";	
-    }		
-  
-	  else{
-    
-      $sql=mysqli_query($con,"select * from admin where username='$eid' && password='$pass' ");
-  
-		  if(mysqli_num_rows($sql)){
-		    $_SESSION['admin_logged_in']=$eid;	
-		    header('location:dashboard.php');	
+
+    if($eid == "" || $pass == ""){
+
+      $error = "<h4 style='color:red'>fill all details</h4>";
+
+    }
+    else{
+
+      $login = $db->admin_login($eid, $pass);
+
+      if($login > 0){
+
+        $_SESSION['admin_logged_in'] = $eid;
+
+        header('location: dashboard.php');
+
       }
-    
-		  else{
-		    $error= "<h3 style='color:red'>Invalid login details</h3>";	
-		  }	
-	  }
+      else{
+
+        $error = "<h4 style='color:red'>Invalid login details</h4>";
+
+      }
+
+    }
+
   }
+
 ?>
 
 <!DOCTYPE html>

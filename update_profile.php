@@ -1,4 +1,5 @@
 <?php
+/*
   session_start();
 
   include('connection.php');
@@ -12,6 +13,7 @@
 ?>
 
 <?php 
+
   $i=1;
 
   $sql=mysqli_query($con,"select * from create_account where email='$eid'");
@@ -27,6 +29,7 @@
     mysqli_query($con,"update create_account set name='$fname',email='$email',password='$Pass',mobile='$mobi',address='$addr',gender='$gend',country='$countr'where email='$eid'");
 
   }
+  
 ?>
 
 <!DOCTYPE html>
