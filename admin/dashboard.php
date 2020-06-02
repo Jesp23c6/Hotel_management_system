@@ -5,6 +5,10 @@
 
   include('../connection.php');
 
+  require('../classes/db.php');
+
+  $db = new DB();
+
   $admin=$_SESSION['admin_logged_in'];	
 
   if($admin==""){

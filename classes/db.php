@@ -488,7 +488,7 @@ class DB{
      */
     function admin_login($email, $password){
 
-        //$password = md5($this->salt . $password);
+        $password = md5($this->salt . $password);
 
         $sql = "SELECT * FROM admin WHERE username='$email' && password='$password'";
 
@@ -531,6 +531,16 @@ class DB{
     function add_room($room_no, $type, $price, $details, $img){
 
         $sql = "insert into rooms values('','$room_no','$type','$price','$details','$img')";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    function update_admin_pass($email, $new_password){
+
+        $new_password = md5($this->salt . $new_password);
+
+        $sql = "UPDATE admin SET password='$new_password' WHERE username='$email'";
 
         $query = $this->conn->query($sql);
 
