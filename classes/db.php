@@ -586,4 +586,14 @@ class DB{
 
     }
 
+    function all_feedback(){
+
+        $sql = "SELECT * FROM feedback";
+
+        $query = $this->conn->query($sql);
+
+        return $query;
+
+    }
+
 }

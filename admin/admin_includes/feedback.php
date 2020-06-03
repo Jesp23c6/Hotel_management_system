@@ -18,8 +18,10 @@
     </tr>
     <?php 
 		$i=1;
-		$sql=mysqli_query($con,"select * from feedback");
-		while($res=mysqli_fetch_assoc($sql)){
+        
+        $feedback = $db->all_feedback();
+
+		while($res = $feedback->fetch_assoc()){
 			$id=$res['id'];	
 			$name=$res['name'];
 			$email=$res['email'];
