@@ -568,4 +568,14 @@ class DB{
 
     }
 
+    function all_booking_details(){
+
+        $sql = "SELECT * FROM room_booking_details";
+
+        $query = $this->conn->query($sql);
+
+        return $query;
+
+    }
+
 }

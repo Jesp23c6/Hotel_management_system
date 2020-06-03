@@ -17,9 +17,11 @@
 
     <?php 
 		$i=1;
-		$sql=mysqli_query($con,"select * from room_booking_details");
-		while($res=mysqli_fetch_assoc($sql)){
-			$oid=$res['id'];
+        
+        $room_info = $db->all_booking_details();
+
+		while($res = $room_info->fetch_assoc()){
+		    $oid=$res['id'];
 
 	?>
     <tr>
@@ -36,8 +38,9 @@
         <td><a style="color:red" href="cancel_order.php?booking_id=<?php echo $oid; ?>">Cancel</a></td>
         </td>
     </tr>
-    <?php 	
-}
+    <?php
 
-?>
+        }
+
+    ?>
 </table>
