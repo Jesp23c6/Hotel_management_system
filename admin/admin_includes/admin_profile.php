@@ -1,7 +1,9 @@
 <?php 
-  $i=1;
-  $sql=mysqli_query($con,"select * from admin");
-  while($res=mysqli_fetch_assoc($sql)){
+    $i=1;
+
+    $admin_info = $db->all_admin_info();
+
+    while($res = $admin_info->fetch_assoc()){
 
 ?>
 <!DOCTYPE html>

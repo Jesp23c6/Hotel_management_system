@@ -559,4 +559,13 @@ class DB{
 
     }
 
+
+    function all_admin_info(){
+
+        $sql = "SELECT * FROM admin";
+
+        $query = $this->conn->query($sql);
+
+    }
+
 }
