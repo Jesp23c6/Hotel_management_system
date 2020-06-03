@@ -14,8 +14,10 @@
     </tr>
     <?php 
 		$i=1;
-		$sql=mysqli_query($con,"select * from create_account");
-		while($res=mysqli_fetch_assoc($sql)){
+        
+        $user_info = $db->all_user_info();
+
+		while($res = $user_info->fetch_assoc()){
 	?>
     <tr>
         <td><?php echo $i;$i++; ?></td>

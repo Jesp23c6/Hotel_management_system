@@ -625,4 +625,14 @@ class DB{
 
     }
 
+    function all_user_info(){
+
+        $sql = "SELECT * FROM create_account";
+
+        $query = $this->conn->query($sql);
+
+        return $query;
+
+    }
+
 }
