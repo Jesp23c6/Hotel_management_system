@@ -17,9 +17,11 @@
         <th>Delete</th>
     </tr>
     <?php 
-		$i=1;
-		$sql=mysqli_query($con,"select * from slider");
-		while($res=mysqli_fetch_assoc($sql)){
+        $i=1;
+        
+        $sliders = $db->all_sliders();
+        
+		while($res = $sliders->fetch_assoc()){
 			$id=$res['id'];	
 			$img=$res['image'];
 			$path="../image/Slider/$img";
