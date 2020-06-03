@@ -598,4 +598,12 @@ class DB{
 
     }
 
+    function update_room($room_number, $type, $price, $details, $id){
+
+        $sql = "UPDATE rooms SET room_no='$room_number', type='$type', price='$price', details='$details' WHERE room_id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
 }

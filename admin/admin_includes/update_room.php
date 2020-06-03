@@ -1,12 +1,15 @@
 <?php 
-	$id=$_GET['id'];
-	$sql=mysqli_query($con,"select * from rooms where room_id='$id'");
-	$res=mysqli_fetch_assoc($sql);
+    $id=$_GET['id'];
+    
+	$res = $db->get_room($id);
 
 	extract($_REQUEST);
 	if(isset($update)){
-		mysqli_query($con,"update rooms set room_no='$rno',type='$type',price='$price',details='$details' where room_id='$id' ");
-		header('location:dashboard.php?option=rooms');
+
+        $db->update_room($rno, $type, $price, $details, $id);
+		
+        header('location:dashboard.php?option=rooms');
+        
 	}
 
 ?>
