@@ -1,11 +1,19 @@
-<?php 
-  include('connection.php');
+<?php
+
+  $db = new DB();
+
   extract($_REQUEST);
+
+  //my code
   if(isset($send)){
-    mysqli_query($con,"insert into feedback values('','$n','$e','$mob','$msg')");	
-    $msg= "<h4 style='color:green;'>feedback sent successfully</h4>";
+
+    $feedback = $db->send_feedback($n, $e, $mob, $msg);
+
+    $msg = "<h4 style='color:green;'>" . $feedback . "</h4>";
+
   }
 ?>
+
 <!-- Footer1 Start Here-->
 
 <footer style="background-color: #393939;">
@@ -18,17 +26,19 @@
                 a flat screen television, and en-suite bathrooms. Small, lower-priced hotels may offer only the most
                 basic guest services and facilities. Larger, higher-priced hotels may provide additional guest
                 facilities such as a swimming pool, business center</p><br>
-            <center><a href="../about.php" class="btn btn-danger"><b>Read More..</b></a></center><br><br><br>
+            <center><a href="about.php" class="btn btn-danger"><b>Read More..</b></a></center><br><br><br>
+
             <?php
               include('social_icon.php');
             ?>
+
         </div>&nbsp;&nbsp;
         <div class="col-sm-4 text-justify">
             <h3 style="color:#cdd51f;">Contact Us</h3>
             <p style="color:white;"><strong>Address:&nbsp;</strong>Sector,59 Mamura Chowk,Noida</p>
             <p style="color:white;"><strong>Email-Id:&nbsp;</strong>hotal@gmail.com</p>
             <p style="color:white;"><strong>Contact Us:&nbsp;</strong>(+91) 7275308190</p><br><br><br>
-            <center><img src="devlop/img2.png" class="img-responsive"
+            <center><img src="../image/devlop/img2.png" class="img-responsive"
                     style="width:200px;height:150px;border-radius:100%;"></center>
         </div>&nbsp;
 

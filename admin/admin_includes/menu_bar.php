@@ -1,10 +1,18 @@
 <?php 
-  session_start();
+
+  /**
+  * Making sure that $eid only gets made if the session variable is set.
+  * So no error is printed if it isn't.
+  */
+  if(isset($_SESSION['create_account_logged_in'])){
+    $eid=$_SESSION['create_account_logged_in'];
+  }
+
   error_reporting(1);
+
 ?>
+
 <!--Menu Bar Close Here-->
-
-
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
@@ -23,15 +31,31 @@
                 <li><a href="../image_gallery.php" title="Gallery">Gallery </a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+
                 <li><a href="index.php" title="Admin Login"><span
                             class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;Admin Login</a></li>
 
                 <?php 
-                  if($_SESSION['create_account_logged_in']!=""){
-                ?>
+      if($_SESSION['create_account_logged_in']!="")
+      {
+        ?>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">View Status <span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../profile.php">Profile</a></li>
+                        <li><a href="../order.php">Booking Status</a></li>
+                        <li><a href="../logout.php">Logout</a></li>
+                    </ul>
+                </li>
                 <?php 
-                  } 
-                ?>
+        }
+        else{
+		?>
+                <li><a href="../Login.php" title="login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;&nbsp;User
+                        Login</a>
+                </li>
+                <?php 
+		} ?>
             </ul>
         </div>
     </div>
