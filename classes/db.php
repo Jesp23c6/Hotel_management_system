@@ -463,6 +463,8 @@ class DB{
 
         $query = $this->conn->query($sql);
 
+        return $query;
+
     }
 
     /**
@@ -601,6 +603,23 @@ class DB{
     function update_room($room_number, $type, $price, $details, $id){
 
         $sql = "UPDATE rooms SET room_no='$room_number', type='$type', price='$price', details='$details' WHERE room_id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+    function update_slider_img($caption, $image, $id){
+
+        $sql = "UPDATE slider SET caption='$caption', image='$image' WHERE id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
+
+    function update_slider($caption, $id){
+
+        $sql = "UPDATE slider SET caption='$caption' WHERE id='$id'";
 
         $query = $this->conn->query($sql);
 
