@@ -566,6 +566,8 @@ class DB{
 
         $query = $this->conn->query($sql);
 
+        return $query;
+
     }
 
     function all_booking_details(){
