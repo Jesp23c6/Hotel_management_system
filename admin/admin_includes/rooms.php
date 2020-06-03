@@ -22,9 +22,11 @@
         <th>Delete</th>
     </tr>
     <?php 
-		$i=1;
-		$sql=mysqli_query($con,"select * from rooms");
-		while($res=mysqli_fetch_assoc($sql)){
+        $i=1;
+        
+        $rooms = $db->all_rooms();
+        
+		while($res = $rooms->fetch_assoc()){
 			$id=$res['room_id'];	
 			$img=$res['image'];
 			$path="../image/rooms/$img";
