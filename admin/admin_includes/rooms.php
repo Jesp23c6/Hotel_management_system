@@ -41,7 +41,7 @@
                     class="glyphicon glyphicon-pencil"></span></a></td>
 
 
-        <td><a href="#" onclick="delRoom('<?php echo $id; ?>')"><span class="glyphicon glyphicon-remove"
+        <td><a href="dashboard.php?option=delete_room&id=<?php echo $id; ?>" onclick="delRoom('<?php echo $id; ?>')"><span class="glyphicon glyphicon-remove"
                     style='color:red'></span></a></td>
     </tr>
     <?php 	

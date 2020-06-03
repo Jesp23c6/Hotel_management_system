@@ -578,4 +578,12 @@ class DB{
 
     }
 
+    function delete_room($id){
+
+        $sql = "DELETE FROM rooms WHERE room_id='$id'";
+
+        $query = $this->conn->query($sql);
+
+    }
+
 }
