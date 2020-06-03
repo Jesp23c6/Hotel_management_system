@@ -546,4 +546,17 @@ class DB{
 
     }
 
+
+    function add_slider($image, $caption){
+
+        $sql = "insert into slider values('','$image','$caption')";
+
+        $query = $this->conn->query($sql);
+
+        $result = $query->num_rows;
+
+        return $result;
+
+    }
+
 }
