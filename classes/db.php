@@ -538,6 +538,13 @@ class DB{
 
     }
 
+    /**
+     * A method to update admin's password
+     *
+     * @param [string] $email
+     * @param [string] $new_password
+     * 
+     */
     function update_admin_pass($email, $new_password){
 
         $new_password = md5($this->salt . $new_password);
@@ -548,7 +555,13 @@ class DB{
 
     }
 
-
+    /**
+     * A method that adds a slider image with caption
+     *
+     * @param [string] $image
+     * @param [string] $caption
+     * @return [int] $result
+     */
     function add_slider($image, $caption){
 
         $sql = "insert into slider values('','$image','$caption')";
@@ -561,7 +574,11 @@ class DB{
 
     }
 
-
+    /**
+     * A method that grabs all admin information
+     *
+     * @return $query
+     */
     function all_admin_info(){
 
         $sql = "SELECT * FROM admin";
@@ -572,6 +589,11 @@ class DB{
 
     }
 
+    /**
+     * A method that finds all booking details
+     *
+     * @return $query
+     */
     function all_booking_details(){
 
         $sql = "SELECT * FROM room_booking_details";
@@ -582,6 +604,12 @@ class DB{
 
     }
 
+    /**
+     * A method to delete room
+     *
+     * @param [int] $id
+     * 
+     */
     function delete_room($id){
 
         $sql = "DELETE FROM rooms WHERE room_id='$id'";
@@ -590,6 +618,11 @@ class DB{
 
     }
 
+    /**
+     * A method that finds all feedback information
+     *
+     * @return $query
+     */
     function all_feedback(){
 
         $sql = "SELECT * FROM feedback";
@@ -600,6 +633,16 @@ class DB{
 
     }
 
+    /**
+     * A method to update a room.
+     *
+     * @param [int] $room_number
+     * @param [string] $type
+     * @param [int] $price
+     * @param [string] $details
+     * @param [int] $id
+     * 
+     */
     function update_room($room_number, $type, $price, $details, $id){
 
         $sql = "UPDATE rooms SET room_no='$room_number', type='$type', price='$price', details='$details' WHERE room_id='$id'";
@@ -608,6 +651,14 @@ class DB{
 
     }
 
+    /**
+     * A method that updates a slider image and caption.
+     *
+     * @param [string] $caption
+     * @param [string] $image
+     * @param [int] $id
+     * 
+     */
     function update_slider_img($caption, $image, $id){
 
         $sql = "UPDATE slider SET caption='$caption', image='$image' WHERE id='$id'";
@@ -616,7 +667,12 @@ class DB{
 
     }
 
-
+    /**
+     * A method that updates a slider's caption.
+     *
+     * @param [string] $caption
+     * @param [int] $id
+     */
     function update_slider($caption, $id){
 
         $sql = "UPDATE slider SET caption='$caption' WHERE id='$id'";
@@ -625,6 +681,11 @@ class DB{
 
     }
 
+    /**
+     * A method that grabs all user info
+     *
+     * @return $query
+     */
     function all_user_info(){
 
         $sql = "SELECT * FROM create_account";

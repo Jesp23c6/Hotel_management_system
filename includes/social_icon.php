@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
     .fa {
-        padding: 20px;
-        font-size: 20px;
+        padding: 5%;
+        font-size: 100%;
         text-align: center;
-        margin: 5px 2px;
+        margin: 2px 2px;
+        height: 50%;
+        width: 12.5%;
         border-radius: 50%;
-        text-decoration: none;
     }
 
     .fa:hover {
@@ -54,7 +55,7 @@
     <!-- Add font awesome icons -->
     <a href="https://www.facebook.com/" class="fa fa-facebook" target="blank" title="facebook"></a>
     <a href="https://twitter.com/" class="fa fa-twitter" target="blank" title="twitter"></a>
-    <a href="https://google-plus.com/" class="fa fa-google-plus" target="blank" title="google-plus"></a>
+    <a href="https://google.com/" class="fa fa-google-plus" target="blank" title="google-plus"></a>
     <a href="https://linkedin.com/" class="fa fa-linkedin" target="blank" title="linkedin"></a>
     <a href="https://youtube.com/" class="fa fa-youtube" target="blank" title="youtube"></a>
     <a href="https://instagram.com/" class="fa fa-instagram" target="blank" title="instagram"></a>

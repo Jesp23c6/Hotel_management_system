@@ -16,7 +16,7 @@
 
 <!-- Footer1 Start Here-->
 
-<footer style="background-color: #393939;">
+<footer style="background-color: #8BA1B6;">
     <div class="container-fluid">
         <div class="col-sm-4 hov">
             <img src="logo/logo2.png" width="200px" height="50px" /><br><br>
@@ -26,7 +26,7 @@
                 a flat screen television, and en-suite bathrooms. Small, lower-priced hotels may offer only the most
                 basic guest services and facilities. Larger, higher-priced hotels may provide additional guest
                 facilities such as a swimming pool, business center</p><br>
-            <center><a href="about.php" class="btn btn-danger"><b>Read More..</b></a></center><br><br><br>
+            <center><a href="about.php" class="btn btn-primary"><b>Read More..</b></a></center><br><br><br>
 
             <?php
               include('social_icon.php');
@@ -34,12 +34,12 @@
 
         </div>&nbsp;&nbsp;
         <div class="col-sm-4 text-justify">
-            <h3 style="color:#cdd51f;">Contact Us</h3>
-            <p style="color:white;"><strong>Address:&nbsp;</strong>Sector,59 Mamura Chowk,Noida</p>
-            <p style="color:white;"><strong>Email-Id:&nbsp;</strong>hotal@gmail.com</p>
-            <p style="color:white;"><strong>Contact Us:&nbsp;</strong>(+91) 7275308190</p><br><br><br>
+            <h3 style="color:black;">Contact Us</h3>
+            <p style="color:black;"><strong>Address:&nbsp;</strong>Sector,59 Mamura Chowk,Noida</p>
+            <p style="color:black;"><strong>Email-Id:&nbsp;</strong>hotal@gmail.com</p>
+            <p style="color:black;"><strong>Contact Us:&nbsp;</strong>(+91) 7275308190</p><br><br><br>
             <center><img src="image/devlop/img2.png" class="img-responsive"
-                    style="width:200px;height:150px;border-radius:100%;"></center>
+                    style="width:150px;height:150px;border-radius:50%;"></center>
         </div>&nbsp;
 
         <!--Feedback Start Here-->

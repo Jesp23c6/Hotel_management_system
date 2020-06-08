@@ -1,3 +1,8 @@
+#title{
+  color: black;
+  margin-top: 5%;
+}
+
 *{
   margin:0px;
   padding: 0px;
@@ -35,7 +40,7 @@
   }
    /* Add a Room Info and Color Fill*/
   #red{
-	  background-color:#337ab7;
+	  background-color:#cfdbe6;
 
   }
   /*color Fill*/
@@ -137,8 +142,7 @@ box-shadow:5px 5px 5px #000408;
     }
     .Room_Text{
        font-family: 'Abril Fatface', cursive;
-      color:#ffbb31;
-      text-shadow:3px 3px 3px #000000;
+      color:#000000;
       text-align:center;
       size:15px;
     }

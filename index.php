@@ -103,7 +103,7 @@
     <div class="container-fluid" id="red">
         <!--Id Is Red-->
         <div class="container text-center">
-            <h1>Welcome To <font color="#a6e22b;"><b>Online Hotel.Com</b></font>
+            <h1 id="title">Welcome To <b>Online Hotel.Com</b>
             </h1>
             <hr><br>
             <div class="row">
@@ -119,9 +119,9 @@
 
                         echo('<div class="col-sm-4">
                         <img src="image/rooms/' . $r_res['image'] . '"class="img-responsive thumbnail"alt="Image"id="img1"> <!--Id Is Img-->
-                        <h4 class="Room_Text">[' . $r_res['type'] . ']</h4>
+                        <h3 class="Room_Text">[' . $r_res['type'] . ']</h3>
                         <p class="text-justify">' . substr($r_res['details'],0,100) . '</p><br>
-	                      <a href="room_details.php?room_id=' . $r_res['room_id'] . '" class="btn btn-danger text-center">Read more</a><br><br>
+	                      <a href="room_details.php?room_id=' . $r_res['room_id'] . '" class="btn btn-primary text-center">Read more</a><br><br>
                         </div>');
 
                       }
